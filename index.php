@@ -280,6 +280,7 @@
                       $data = $result->fetch_assoc();
                     ?>
                     <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?> </span>
+                  <!-- Change Stop Here -->
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
@@ -310,7 +311,15 @@
 
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp 165.000,-</span>
+                    <!-- Change Here -->
+                    <?php
+                      include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Standart'";
+                      $result = $conn->query($sql);
+                      $data = $result->fetch_assoc();
+                    ?>
+                    <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?></span>
+                    <!-- Change Stop Here -->
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
@@ -341,7 +350,15 @@
 
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp 220.000,-</span>
+                    <!-- Change Start Here -->
+                    <?php
+                      include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Deluxe'";
+                      $result = $conn->query($sql);
+                      $data = $result->fetch_assoc();
+                    ?>
+                    <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?></span>
+                    <!-- Change End Here -->
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
