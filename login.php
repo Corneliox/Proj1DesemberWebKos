@@ -139,7 +139,7 @@ list($application_name, $author, $description, $keywords, $creator, $version, $t
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Login</button>
-                      <p class="mt-3 mb-0" style="color: black;">Belum Punya Akun? <a href="./daftar1.php">Daftar Di Sini</a></p>
+                      <p class="mt-3 mb-0" style="color: black;">Belum Punya Akun? <a href="./daftar.php">Daftar Di Sini</a></p>
 
                     </div>
 
