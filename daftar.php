@@ -118,10 +118,10 @@ list($application_name, $author, $description, $keywords, $creator, $version, $t
         <section id="comment-form" class="comment-form section">
             <div class="container">
 
-                <form action="proseslogin.php" method="post">
+                <form action="prosesdaftar.php" method="post">
 
-                    <h4>Sig in</h4>
-                    <!-- <p>Silahkan masuk</p> -->
+                    <h4>Sign in</h4>
+                    <p>Daftar Akun Baru</p>
                     <div class="row">
                         <div class="col form-group">
                             <input id="name" name="name" type="email" class="form-control" placeholder="Name" required>
@@ -129,7 +129,7 @@ list($application_name, $author, $description, $keywords, $creator, $version, $t
                     </div>
                     <div class="row">
                         <div class="col form-group">
-                            <input id="email" name="email" type="email" class="form-control" placeholder="PEmail" required>
+                            <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="row">
