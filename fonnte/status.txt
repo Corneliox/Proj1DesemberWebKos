@@ -1,0 +1,68 @@
+{"detail":"success! message in queue","id":["63069315"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63073508"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63568838"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63568873"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63568914"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63568925"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63568929"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63568930"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63568932"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63569309"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63569946"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63570385"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63570390"],"process":"processing","status":true,"target":["6282242227643"]}
+{"reason":"request invalid on disconnected device","status":false}
+{"reason":"request invalid on disconnected device","status":false}
+{"reason":"request invalid on disconnected device","status":false}
+{"reason":"request invalid on disconnected device","status":false}
+{"reason":"request invalid on disconnected device","status":false}
+{"reason":"request invalid on disconnected device","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"detail":"success! message in queue","id":["63575761"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63576180"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63576998"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63577229"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63577540"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63578350"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63579091"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63579543"],"process":"processing","status":true,"target":["6285155356177"]}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"detail":"success! message in queue","id":["63593629"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63594145"],"process":"processing","status":true,"target":["6282242227643"]}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"detail":"success! message in queue","id":["63618894"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63624571"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63632246"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63636154"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63636157"],"process":"processing","status":true,"target":["6282242227643"]}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"detail":"success! message in queue","id":["63640921"],"process":"processing","status":true,"target":["6282242227643"]}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"detail":"success! message in queue","id":["63658301"],"process":"processing","status":true,"target":["6282242227643"]}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"detail":"success! message in queue","id":["63821120"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63821221"],"process":"processing","status":true,"target":["6282242227643"]}
+{"reason":"target invalid","status":false}

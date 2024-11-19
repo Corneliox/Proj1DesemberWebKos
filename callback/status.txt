@@ -1,0 +1,10 @@
+{"detail":"success! message in queue","id":["63577015"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63577028"],"process":"processing","status":true,"target":["6285155356177"]}
+{"detail":"success! message in queue","id":["63641468"],"process":"processing","status":true,"target":["6282242227643"]}
+{"reason":"target invalid","status":false}
+{"reason":"target invalid","status":false}
+{"detail":"success! message in queue","id":["63659485"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["63856627"],"process":"processing","status":true,"target":["628871292051"]}
+{"detail":"success! message in queue","id":["63959292"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["64092475"],"process":"processing","status":true,"target":["6282242227643"]}
+{"detail":"success! message in queue","id":["64144996"],"process":"processing","status":true,"target":["6282242227643"]}

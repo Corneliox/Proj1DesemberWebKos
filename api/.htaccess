@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+	<IfModule mod_negotiation.c>
+		Options -MultiViews -Indexes
+	</IfModule>
+
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME}.php -f
+	RewriteRule ^([^/.]+)/?$ $1.php [NC,L,QSA]
+	RewriteRule ^([^/.]+)/([A-Za-z0-9-\+]+)/?$ $1.php?id=$2 [NC,L,QSA]
+
+	#RewriteRule ^([^/.]+)/([0-9]+)/?$ $1.php?id=$2 [NC,L,QSA]
+</IfModule>

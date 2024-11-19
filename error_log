@@ -1,0 +1,21 @@
+[25-Oct-2024 14:44:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function layout() in /home/mesy7597/public_html/purbadanarta/login.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/mesy7597/public_html/purbadanarta/login.php on line 11
+[25-Oct-2024 14:46:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function layout() in /home/mesy7597/public_html/purbadanarta/login.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/mesy7597/public_html/purbadanarta/login.php on line 11
+[25-Oct-2024 14:46:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function layout() in /home/mesy7597/public_html/purbadanarta/login.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/mesy7597/public_html/purbadanarta/login.php on line 11
+[28-Oct-2024 14:20:50 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 35
+[28-Oct-2024 14:21:06 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 35
+[28-Oct-2024 14:21:36 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 35
+[28-Oct-2024 14:36:57 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 27
+[28-Oct-2024 14:43:54 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 27
+[28-Oct-2024 14:44:03 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 27
+[28-Oct-2024 14:44:10 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 27
+[28-Oct-2024 14:44:19 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 27
+[28-Oct-2024 14:48:54 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/mesy7597/public_html/purbadanarta/respon.php on line 27
