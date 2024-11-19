@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'resources/views/template.php';
 
 // Cek apakah pengguna sudah login
 if (isset($_SESSION['user_logged_in'])) {

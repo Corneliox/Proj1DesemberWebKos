@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'resources/views/template.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
