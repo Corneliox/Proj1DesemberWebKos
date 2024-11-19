@@ -120,21 +120,11 @@ list($application_name, $author, $description, $keywords, $creator, $version, $t
 
                 <form action="proseslogin.php" method="post">
 
-                    <h4>Sig in</h4>
-                    <!-- <p>Silahkan masuk</p> -->
+                    <h4>Login</h4>
+                    <p>Silahkan masuk</p>
                     <div class="row">
                         <div class="col form-group">
-                            <input id="name" name="name" type="email" class="form-control" placeholder="Name" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col form-group">
-                            <input id="email" name="email" type="email" class="form-control" placeholder="PEmail" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col form-group">
-                            <input id="phone" name="phone" type="tel" class="form-control" placeholder="Phone" required>
+                            <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="row">
@@ -142,14 +132,10 @@ list($application_name, $author, $description, $keywords, $creator, $version, $t
                             <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col form-group">
-                            <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Confirm Password" required>
-                        </div>
-                    </div>
+
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Daftar</button>
-                        <p class="mt-3 mb-0">Sudah Punya Akun? <a href="./login.php">Login Di Sini</a></p>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <p class="mt-3 mb-0">Belum Punya Akun? <a href="./daftar.php">Daftar Di Sini</a></p>
                     </div>
 
                 </form>
