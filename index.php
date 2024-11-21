@@ -77,8 +77,8 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Selamat Datang di Wisma Purba Danarta</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Penginapan premium yang nyaman dan sejuk di tengah jantung Kota Semarang</p>
+            <h1 data-aos="fade-up">Selamat Datang di Kost Ertiga</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Kost premium yang nyaman dan sejuk di Ungaran-Kota Semarang yag cocok untuk Anak Kuliahan dan Pekerja</p>
             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
               <a href="#about" class="btn-get-started">Pelajari Lebih Lanjut <i class="bi bi-arrow-right"></i></a>
               <!--<a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center justify-content-center ms-0 ms-md-4 mt-4 mt-md-0"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>-->
@@ -103,7 +103,9 @@
               <h3>Tentang Kami</h3>
               <h2><?= $application_name; ?></h2>
               <p>
-                Wisma Purba Danarta terletak di jantung kota Semarang. Dengan lingkungan yang asri dan lokasi yang sangat strategis, menjadikan Wisma Purba Danarta sebagai destinasi penginapan yang tepat untuk menemani liburan anda di kota Semarang.
+                Wisma Purba Danarta terletak di jantung kota Semarang. Dengan lingkungan yang asri dan lokasi yang sangat strategis, 
+                menjadikan Wisma Purba Danarta sebagai destinasi penginapan yang tepat untuk menemani liburan anda di kota Semarang. 
+                <!-- Jangan Lupa Diganti!!! -->
               </p>
               <div class="text-center text-lg-start">
                 <a href="./pemesanankamar.php" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
@@ -128,7 +130,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Penginapan</h2>
+        <h2>Kost Ertiga</h2>
         <p>Pilihan Kamar Kami<br></p>
       </div><!-- End Section Title -->
 
@@ -186,7 +188,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Fasilitas</h2>
-        <p>Fasilitas Penginapan Kami<br></p>
+        <p>Fasilitas Kost Kami<br></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -235,12 +237,12 @@
                 </div>
               </div><!-- End Feature Item -->
 
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+              <!-- <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
                 <div class="feature-box d-flex align-items-center">
                   <i class="bi bi-check"></i>
                   <h3>Makan Pagi</h3>
                 </div>
-              </div><!-- End Feature Item -->
+              </div>End Feature Item -->
 
 			  <div class="col-md-6" data-aos="fade-up" data-aos-delay="800">
                 <div class="feature-box d-flex align-items-center">
