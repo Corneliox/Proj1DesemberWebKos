@@ -7,7 +7,7 @@ require_once 'resources/views/template.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamar Ekonomi - Wisma Purba Danarta</title>
+    <title>Kamar D - Kost Ertiga</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
          body {
@@ -59,7 +59,7 @@ require_once 'resources/views/template.php';
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="index.php">Wisma Purba Danarta</a>
+    <a class="navbar-brand" href="index.php">Kost Ertiga</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,13 +69,19 @@ require_once 'resources/views/template.php';
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="kamarekonomi.php">Kamar Ekonomi</a>
+                <a class="nav-link" href="kamarA.php">Kamar A</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="kamarstandart.php">Kamar Standart</a>
+                <a class="nav-link" href="kamarA2.php">Kamar A2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="kamardeluxe.php">Kamar Deluxe</a>
+                <a class="nav-link" href="kamarB.php">Kamar B</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kamarC.php">Kamar C</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kamarD.php">Kamar D</a>
             </li>
 <?php
 	if (!isset($_SESSION['user_logged_in'])) {
@@ -98,11 +104,12 @@ require_once 'resources/views/template.php';
         </ul>
     </div>
 </nav>
+<!-- Navbar End -->
 
-<!-- Kamar Ekonomi -->
+<!-- Kamar D -->
 <div class="container">
-    <h2>Kamar Ekonomi</h2>
-    <img src="gambar/kamar_ekonomi.jpg" alt="Kamar Ekonomi" class="hero-image">
+    <h2>Kamar D</h2>
+    <img src="gambar/kamarD.jpg" alt="Kamar D" class="hero-image">
 
     <h3>Deskripsi Fasilitas</h3>
     <ul>
@@ -114,7 +121,7 @@ require_once 'resources/views/template.php';
     </ul>
 	<?php
 		include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Ekonomi'";
+		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'D'";
 		$result = $conn->query($sql);
 		$data = $result->fetch_assoc();
 	?>
