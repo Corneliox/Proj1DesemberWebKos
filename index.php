@@ -32,7 +32,7 @@
 
       <a href="./" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo1.png" alt="">
+        <img src="assets/img/logo11.png" alt="">
         <h1 class="sitename"><?= $application_name; ?></h1>
       </a>
 
@@ -85,7 +85,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="gambar/ypd.png" class="img-fluid animated" alt="">
+            <img src="gambar/ypd1.png" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -102,8 +102,7 @@
             <div class="content">
               <h3>Tentang Kami</h3>
               <h2><?= $application_name; ?></h2>
-              <p>
-              Kos Ertiga terletak di kawasan strategis Semarang, menawarkan lingkungan asri dan akses mudah ke berbagai fasilitas umum. Dengan fasilitas lengkap seperti kamar ber-AC, WiFi super cepat, kamar mandi dalam, dapur bersama, dan area parkir luas, Kos Ertiga adalah pilihan tepat untuk hunian yang nyaman, praktis, dan mendukung kebutuhan Anda sehari-hari. 
+              <p>Kos Ertiga terletak di kawasan strategis Semarang, menawarkan lingkungan asri dan akses mudah ke berbagai fasilitas umum. Dengan fasilitas lengkap seperti kamar ber-AC, WiFi super cepat, kamar mandi dalam, dapur bersama, dan area parkir luas, Kos Ertiga adalah pilihan tepat untuk hunian yang nyaman, praktis, dan mendukung kebutuhan Anda sehari-hari. 
                 <!-- Jangan Lupa Diganti!!! -->
               </p>
               <div class="text-center text-lg-start">
@@ -116,7 +115,7 @@
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/wismapb.jpg" class="img-fluid" alt="">
+            <img src="assets/img/wismapb1.jpg" class="img-fluid" alt="">
           </div>
 
         </div>
@@ -294,7 +293,7 @@
                   <!-- Change Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'A'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar A'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -303,7 +302,7 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span> 
                   </div>
                 </div>
 
@@ -333,7 +332,7 @@
                     <!-- Change Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'A2'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar A2'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -342,7 +341,7 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
 
@@ -372,7 +371,7 @@
                     <!-- Change Start Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'B'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar B'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -381,7 +380,7 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
 
@@ -411,7 +410,7 @@
                     <!-- Change Start Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'C'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar C'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -420,7 +419,7 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span> 
                   </div>
                 </div>
 
@@ -450,7 +449,7 @@
                     <!-- Change Start Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'D'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar D'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -459,7 +458,7 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
 
@@ -538,7 +537,7 @@
               <div class="row gy-4">
 
                 <div class="col-12 text-center">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.4828088531916!2d110.4055123!3d-7.0037744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b731ad39417%3A0x8bdf4c3ec416195f!2sJl.%20Veteran%20No.7%2C%20Lempongsari%2C%20Kec.%20Gajahmungkur%2C%20Kota%20Semarang%2C%20Jawa%20Tengah%2050231!5e0!3m2!1sid!2sid!4v1695387606674" width="100%" height="357.5px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://maps.app.goo.gl/cYRrfhDDjwwxd2NZ8" width="100%" height="357.5px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
               </div>
@@ -579,11 +578,12 @@
 </head>
 <body>
     <div class="informasi container">
-        <h3>Ikuti Kami di Instagram</h3>
-        <p>Instagram: <a href="https://www.instagram.com/yayasanpurbadanarta" target="_blank">@yayasanpurbadanarta</a></p>
-
-        <h3>Ikuti Kami di TikTok</h3>
-<p>TikTok: <a href="https://www.tiktok.com/@wisma.purba.danar" target="_blank">@wisma.purba.danar</a></p>
+      <h3>Ikuti Kami di Instagram</h3>
+      <p>Instagram: <a href="https://www.instagram.com/kostputriertiga_ngaliyan?igsh=ZXFzcWZjMHVtZTNk" target="_blank">@kostputriertiga_ngaliyan</a></p>
+      <!-- 
+      <h3>Ikuti Kami di TikTok</h3>
+      <p>TikTok: <a href="https://www.tiktok.com/@wisma.purba.danar" target="_blank">@wisma.purba.danar</a></p> 
+      -->
 
     </div>
 </body>
