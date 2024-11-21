@@ -39,11 +39,13 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="./" class="active">Beranda</a></li>
-          <li class="dropdown"><a href="#"><span>Penginapan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#"><span>Kost Ertiga</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="./kamarekonomi.php">Kamar Ekonomi</a></li>
-			  <li><a href="./kamarstandart.php">Kamar Standart</a></li>
-              <li><a href="./kamardeluxe.php">Kamar Deluxe</a></li>
+              <li><a href="./kamarA.php">Kamar A</a></li>
+			        <li><a href="./kamarA2.php">Kamar A2</a></li>
+              <li><a href="./kamarB.php">Kamar B</a></li>
+			        <li><a href="./kamarC.php">Kamar C</a></li>
+              <li><a href="./kamarD.php">Kamar D</a></li>
             </ul>
           </li>
 <?php
