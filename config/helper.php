@@ -124,23 +124,23 @@
 	function settings(){
 		global $mysqli;
 
-		$application_name = 'Wisma Purba Danarta';
-		$author = 'Yayasan Purba Danarta';
-		$description = 'Bursa kerja Khusus dan Tracer Study adalah sebuah wadah dimana alumni dapat dengan mudah mendapatkan informasi pekerjaan, penempatan kerja melalui sekolah, selain itu alumni juga mendapatkan informasi perguruan tinggi, dan Tracer Study merupakan survey alumni untuk mengetahui minat alumni setalah lulus.';
+		$application_name = 'Kost Ertiga Ungaran';
+		$author = 'Kost Ertiga Semarang';
+		$description = 'Kos Ertiga terletak di kawasan strategis Semarang, menawarkan lingkungan asri dan akses mudah ke berbagai fasilitas umum. Dengan fasilitas lengkap seperti kamar ber-AC, WiFi super cepat, kamar mandi dalam, dapur bersama, dan area parkir luas, Kos Ertiga adalah pilihan tepat untuk hunian yang nyaman, praktis, dan mendukung kebutuhan Anda sehari-hari.';
 		$keywords = '';
-		$creator = 'Yayasan Purba Danarta';
+		$creator = 'Kost Ertiga Ungaran';
 		$version = '1.0';
 		$title = 'BKK Tracer Study';
 		$header = 'BKK Tracer Study';
-		$footer = 'Wisma Purba Danarta';
-		$address = 'Jl. Veteran No. 7 Semarang 50231';
-		$telephone = '(024) 8314 793';
+		$footer = 'Kost Ertiga Ungaran';
+		$address = '241 Jl. Karonsih Utara Raya Jawa Tengah';
+		$telephone = '';
 		$facsimile = '';
-		$email = 'sekretariat@purbadanarta.org';
+		$email = '';
 		$whatsapp = '';
-		$website = 'https://purbadanarta.org';
+		$website = '';
 		$facebook = '';
-		$instagram = 'https://instagram.com/yayasanpurbadanarta';
+		$instagram = 'https://www.instagram.com/kostputriertiga_ngaliyan?igsh=ZXFzcWZjMHVtZTNk';
 		$twitter = '';
 		$youtube = '';
 
