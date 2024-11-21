@@ -136,24 +136,40 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="assets/img/1.jpg" class="img-fluid" alt="">
-              <h3>Kamar Ekonomi</h3>
+              <img src="assets/img/A.jpg" class="img-fluid" alt="">
+              <h3>Kamar A</h3>
               <p></p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
-              <img src="assets/img/2.jpg" class="img-fluid" alt="">
-              <h3>Kamar Standart</h3>
+              <img src="assets/img/A2.jpg" class="img-fluid" alt="">
+              <h3>Kamar A2</h3>
               <p></p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
-              <img src="assets/img/3.jpg" class="img-fluid" alt="">
-              <h3>Kamar Deluxe</h3>
+              <img src="assets/img/B.jpg" class="img-fluid" alt="">
+              <h3>Kamar B</h3>
+              <p></p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <img src="assets/img/C.jpg" class="img-fluid" alt="">
+              <h3>Kamar C</h3>
+              <p></p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <img src="assets/img/D.jpg" class="img-fluid" alt="">
+              <h3>Kamar D</h3>
               <p></p>
             </div>
           </div><!-- End Card Item -->
@@ -262,20 +278,20 @@
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/1.jpg" class="img-fluid" alt="">
-                <span class="post-date">Ekonomi</span>
+                <img src="assets/img/A.jpg" class="img-fluid" alt="">
+                <span class="post-date">A</span>
               </div>
 
               <div class="post-content d-flex flex-column">
 
-                <h3 class="post-title">Kamar Ekonomi</h3>
+                <h3 class="post-title">Kamar A</h3>
 
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                   <!-- Change Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Ekonomi'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'A'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -284,13 +300,13 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Malam</span>
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
 
                 <hr>
 
-                <a href="./kamarekonomi.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
+                <a href="./kamarA.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
 
               </div>
 
@@ -301,20 +317,20 @@
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/2.jpg" class="img-fluid" alt="">
-                <span class="post-date">Standart</span>
+                <img src="assets/img/A2.jpg" class="img-fluid" alt="">
+                <span class="post-date">A2</span>
               </div>
 
               <div class="post-content d-flex flex-column">
 
-                <h3 class="post-title">Kamar Standart</h3>
+                <h3 class="post-title">Kamar A2</h3>
 
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                     <!-- Change Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Standart'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'A2'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -323,13 +339,13 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Malam</span>
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
 
                 <hr>
 
-                <a href="./kamarstandart.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
+                <a href="./kamarA2.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
 
               </div>
 
@@ -340,20 +356,20 @@
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/3.jpg" class="img-fluid" alt="">
-                <span class="post-date">Deluxe</span>
+                <img src="assets/img/B.jpg" class="img-fluid" alt="">
+                <span class="post-date">B</span>
               </div>
 
               <div class="post-content d-flex flex-column">
 
-                <h3 class="post-title">Kamar Deluxe</h3>
+                <h3 class="post-title">Kamar B</h3>
 
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                     <!-- Change Start Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Deluxe'";
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'B'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
                     ?>
@@ -362,13 +378,91 @@
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Malam</span>
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
 
                 <hr>
 
-                <a href="./kamardeluxe.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
+                <a href="./kamarB.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
+
+              </div>
+
+            </div>
+          </div><!-- End post item -->
+
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/C.jpg" class="img-fluid" alt="">
+                <span class="post-date">C</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+
+                <h3 class="post-title">Kamar C</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <!-- Change Start Here -->
+                    <?php
+                      include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'C'";
+                      $result = $conn->query($sql);
+                      $data = $result->fetch_assoc();
+                    ?>
+                    <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?></span>
+                    <!-- Change End Here -->
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="./kamarC.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
+
+              </div>
+
+            </div>
+          </div><!-- End post item -->
+
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/D.jpg" class="img-fluid" alt="">
+                <span class="post-date">D</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+
+                <h3 class="post-title">Kamar D</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <!-- Change Start Here -->
+                    <?php
+                      include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'D'";
+                      $result = $conn->query($sql);
+                      $data = $result->fetch_assoc();
+                    ?>
+                    <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?></span>
+                    <!-- Change End Here -->
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="./kamarD.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
 
               </div>
 
