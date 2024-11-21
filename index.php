@@ -103,8 +103,7 @@
               <h3>Tentang Kami</h3>
               <h2><?= $application_name; ?></h2>
               <p>
-                Wisma Purba Danarta terletak di jantung kota Semarang. Dengan lingkungan yang asri dan lokasi yang sangat strategis, 
-                menjadikan Wisma Purba Danarta sebagai destinasi penginapan yang tepat untuk menemani liburan anda di kota Semarang. 
+              Kos Ertiga terletak di kawasan strategis Semarang, menawarkan lingkungan asri dan akses mudah ke berbagai fasilitas umum. Dengan fasilitas lengkap seperti kamar ber-AC, WiFi super cepat, kamar mandi dalam, dapur bersama, dan area parkir luas, Kos Ertiga adalah pilihan tepat untuk hunian yang nyaman, praktis, dan mendukung kebutuhan Anda sehari-hari. 
                 <!-- Jangan Lupa Diganti!!! -->
               </p>
               <div class="text-center text-lg-start">
