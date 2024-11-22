@@ -32,7 +32,7 @@
 
       <a href="./" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo1.png" alt="">
+        <img src="assets/img/logo11.png" alt="">
         <h1 class="sitename"><?= $application_name; ?></h1>
       </a>
 
@@ -83,7 +83,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="gambar/ypd.png" class="img-fluid animated" alt="">
+            <img src="gambar/ypd1.png" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>

@@ -132,7 +132,7 @@
 
       <a href="./" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo1.png" alt="">
+        <img src="assets/img/logo11.png" alt="">
         <h1 class="sitename"><?= $application_name; ?></h1>
       </a>
 

@@ -35,7 +35,7 @@ include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
         <a href="./dashboard.php" class="logo d-flex align-items-center me-auto">
-            <img src="assets/img/logo1.png" alt="">
+            <img src="assets/img/logo11.png" alt="">
             <h1 class="sitename">Dashboard Admin</h1>
         </a>
 

@@ -66,7 +66,7 @@ list($application_name, $author, $description, $keywords, $creator, $version, $t
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
             <a href="./" class="logo d-flex align-items-center me-auto">
-                <img src="assets/img/logo1.png" alt="">
+                <img src="assets/img/logo11.png" alt="">
                 <h1 class="sitename"><?= htmlspecialchars($application_name); ?></h1>
             </a>
 

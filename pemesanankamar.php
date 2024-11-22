@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="pemesanankamar.php">
-        <img src="gambar/ypd.png" alt="Logo" style="width: 80px; height: 80px; margin-right: 40px;">
+        <img src="gambar/ypd1.png" alt="Logo" style="width: 80px; height: 80px; margin-right: 40px;">
         Wisma Purba Danarta
 </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
