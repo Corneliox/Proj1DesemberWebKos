@@ -124,15 +124,15 @@
 	function settings(){
 		global $mysqli;
 
-		$application_name = 'Kost Ertiga Ungaran';
+		$application_name = 'Kost Ertiga Ngaliyan';
 		$author = 'Kost Ertiga Semarang';
 		$description = 'Kos Ertiga terletak di kawasan strategis Semarang, menawarkan lingkungan asri dan akses mudah ke berbagai fasilitas umum. Dengan fasilitas lengkap seperti kamar ber-AC, WiFi super cepat, kamar mandi dalam, dapur bersama, dan area parkir luas, Kos Ertiga adalah pilihan tepat untuk hunian yang nyaman, praktis, dan mendukung kebutuhan Anda sehari-hari.';
 		$keywords = '';
-		$creator = 'Kost Ertiga Ungaran';
+		$creator = 'Kost Ertiga Ngaliyan';
 		$version = '1.0';
 		$title = 'BKK Tracer Study';
 		$header = 'BKK Tracer Study';
-		$footer = 'Kost Ertiga Ungaran';
+		$footer = 'Kost Ertiga Ngaliyan';
 		$address = '241 Jl. Karonsih Utara Raya Jawa Tengah';
 		$telephone = '';
 		$facsimile = '';
