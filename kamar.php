@@ -89,6 +89,7 @@
 					<th>No</th>
 					<th>Tipe Kamar</th>
 					<th>Harga Per Malam</th>
+          <th>Jumlah</th>
 					<th>Aksi</th>
 				</tr>
 			</thead>

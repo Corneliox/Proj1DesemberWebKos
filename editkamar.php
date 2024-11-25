@@ -141,6 +141,11 @@
 				<input id="harga_per_malam" name="harga_per_malam" type="number" class="form-control" placeholder="Harga Per Malam" value="<?= $data['harga_per_malam']; ?>" required>
 			  </div>
 			</div>
+			<div class="row">
+			  <div class="col form-group">
+				<input id="jumlah" name="jumlah" type="number" class="form-control" placeholder="Jumlah Kamar" value="<?= $data['jumlah']; ?>" required>
+			  </div>
+			</div>
 
 			<div class="text-center">
 			  <button type="submit" name="submit" value="submit" class="btn btn-primary">Simpan</button>
