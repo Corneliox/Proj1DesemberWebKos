@@ -288,7 +288,7 @@
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
                 ?>
-                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <span class="post-date">@<?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
@@ -335,7 +335,7 @@
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
                 ?>
-                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <span class="post-date">@<?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
@@ -382,7 +382,7 @@
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
                 ?>
-                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <span class="post-date">@<?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
@@ -429,7 +429,7 @@
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
                 ?>
-                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <span class="post-date">@<?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
@@ -476,7 +476,7 @@
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
                 ?>
-                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <span class="post-date">@<?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
