@@ -83,7 +83,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Selamat Datang</h2>
-        <p>Dashboard Admin Wisma Purba Danarta</p>
+        <p>Dashboard Admin Kost Ertiga Ngaliyan</p>
       </div><!-- End Section Title -->
 
       <!--<div class="container" data-aos="fade-up">
