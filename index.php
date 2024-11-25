@@ -281,7 +281,15 @@
 
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/A.jpg" class="img-fluid" alt="">
-                <span class="post-date">A</span>
+                <!-- Change Span img -->
+                <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar A'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
+                ?>
+                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <!-- End Change Span img -->
               </div>
 
               <div class="post-content d-flex flex-column">
@@ -320,7 +328,15 @@
 
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/A2.jpg" class="img-fluid" alt="">
-                <span class="post-date">A2</span>
+                <!-- Change Span img -->
+                <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar A2'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
+                ?>
+                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <!-- End Change Span img -->
               </div>
 
               <div class="post-content d-flex flex-column">
@@ -359,7 +375,15 @@
 
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/B.jpg" class="img-fluid" alt="">
-                <span class="post-date">B</span>
+                <!-- Change Span img -->
+                <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar B'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
+                ?>
+                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <!-- End Change Span img -->
               </div>
 
               <div class="post-content d-flex flex-column">
@@ -398,7 +422,15 @@
 
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/C.jpg" class="img-fluid" alt="">
-                <span class="post-date">C</span>
+                <!-- Change Span img -->
+                <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar C'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
+                ?>
+                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <!-- End Change Span img -->
               </div>
 
               <div class="post-content d-flex flex-column">
@@ -437,7 +469,15 @@
 
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/D.jpg" class="img-fluid" alt="">
-                <span class="post-date">D</span>
+                <!-- Change Span img -->
+                <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar D'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
+                ?>
+                <span class="post-date">@<?= data['jumlah']; ?></span>
+                <!-- End Change Span img -->
               </div>
 
               <div class="post-content d-flex flex-column">
