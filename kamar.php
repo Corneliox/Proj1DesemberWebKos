@@ -95,7 +95,7 @@
 			<tbody>
 				<?php
 					$no = 1;
-					$sql = "SELECT * FROM kamar ORDER BY id DESC";
+					$sql = "SELECT * FROM kamar ORDER BY id ASC";
 					$result = $conn->query($sql);
 					while($data = $result->fetch_assoc()){
 				?>
