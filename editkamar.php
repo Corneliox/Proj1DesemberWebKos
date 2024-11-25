@@ -41,10 +41,11 @@
 	if(isset($_POST['submit'])){
 		$tipe_kamar = $_POST['tipe_kamar'];
 		$harga_per_malam = $_POST['harga_per_malam'];
+		$jumlah = $_POST['jumlah'];
 
-		$sql = "UPDATE kamar SET tipe_kamar = ?, harga_per_malam = ? WHERE id = ?";
+		$sql = "UPDATE kamar SET tipe_kamar = ?, harga_per_malam = ?, jumlah = ? WHERE id = ?";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param('sdi', $tipe_kamar, $harga_per_malam, $id);
+		$stmt->bind_param('sdi', $tipe_kamar, $harga_per_malam, $jumlah, $id);
 		$stmt->execute();
 		$update = $stmt->affected_rows;
 

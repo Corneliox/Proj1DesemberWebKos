@@ -103,6 +103,9 @@
 					<td><?= $no++; ?></td>
 					<td><?= $data['tipe_kamar']; ?></td>
 					<td>Rp <?= $data['harga_per_malam']; ?></td>
+          <!-- Add Quantity -->
+          <td><?= $data['jumlah']; ?></td>
+          <!-- End Ad Quantity -->
 					<td>
 						<a class="btn btn-success" href="./editkamar.php?id=<?= $data['id']; ?>"><i class='fa fa-edit'></i> Edit</a>
 						<a class="btn btn-danger" href="./hapuskamar.php?id=<?= $data['id']; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini?')"><i class='fa fa-trash'></i> Hapus</a>

@@ -14,7 +14,10 @@
 
 	include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
 	
-	$sql = "SELECT (SELECT COUNT(*) FROM kamar) AS total_kamar, (SELECT COUNT(*) FROM transaksi) AS total_transaksi, (SELECT COUNT(*) FROM users) AS total_user, (SELECT COUNT(*) FROM admin) AS total_admin";
+	$sql = "SELECT (SELECT SUM(jumlah) FROM kamar) AS total_kamar, 
+                (SELECT COUNT(*) FROM transaksi) AS total_transaksi, 
+                (SELECT COUNT(*) FROM users) AS total_user, 
+                (SELECT COUNT(*) FROM admin) AS total_admin";
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
 	$data = $stmt->get_result()->fetch_assoc();
