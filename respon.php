@@ -1,6 +1,7 @@
 <?php
 include "token.php";
 date_default_timezone_set('Asia/Jakarta');
+require_once 'resources/views/template.php';
 
 // Menentukan waktu kedaluwarsa
 $expireTime = date('Y-m-d\TH:i', strtotime('+3 hours'));
