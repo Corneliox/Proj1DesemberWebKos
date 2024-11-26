@@ -262,14 +262,13 @@ const totalPriceElement = document.getElementById('total_price');
 function calculateDayCount(checkInDate, checkOutDate) {
     const checkIn = new Date(checkInDate);
     const checkOut = new Date(checkOutDate);
+    const differenceInTime = checkOut - checkIn;
 
-    // Pastikan tanggal check-out valid
-    if (isNaN(checkIn.getTime()) || isNaN(checkOut.getTime()) || checkOut <= checkIn) {
+    if (differenceInTime > 0) {
+        return Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+    } else {
         return 0;
     }
-
-    const timeDiff = checkOut - checkIn;
-    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Konversi dari milidetik ke hari
 }
 
 function updateTotalPrice() {
@@ -297,6 +296,8 @@ function updateTotalPrice() {
 document.addEventListener("DOMContentLoaded", function () {
         const roomTypeSelect = document.getElementById("room_type");
         const roomCountInput = document.getElementById("room_count");
+        const checkInInput = document.getElementById('checkin');
+        const checkOutInput = document.getElementById('checkout');
 
         roomTypeSelect.addEventListener("change", function () {
             const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
@@ -314,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 // Tambahkan event listener ke elemen input untuk menghitung harga secara dinamis
-roomTypeInput.addEventListener('change', updateTotalPrice);
+roomTypeSelect.addEventListener('change', updateTotalPrice);
 roomCountInput.addEventListener('input', updateTotalPrice);
 checkInDateInput.addEventListener('change', updateTotalPrice);
 checkOutDateInput.addEventListener('change', updateTotalPrice);
