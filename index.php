@@ -21,7 +21,11 @@
 
   <?= layout('css'); ?>
   <style>
- 
+  .disabled {
+  pointer-events: none; 
+  opacity: 0.5; 
+  background-color: #f5f5f5; 
+  }
   </style>
 </head>
 
@@ -271,14 +275,22 @@
         <h2>Booking</h2>
         <p>Booking Kamar Sekarang</p>
       </div><!-- End Section Title -->
-
+      
       <div class="container">
-
+        
         <div class="row gy-5">
-
+          
           <div class="col-xl-4 col-md-6">
+            <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar A'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
+                  
+                  $isDisabled = $data['jumlah'] == 0 ? 'disabled' : '';
+                  ?>
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-
+              
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/A.jpg" class="img-fluid" alt="">
                 <!-- Change Span img -->
@@ -287,45 +299,57 @@
                   $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar A'";
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
-                ?>
-                <span class="post-date">@<?= $data['jumlah']; ?></span>
+                  ?>
+                <span class="post-date"><?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
-
+              
               <div class="post-content d-flex flex-column">
-
+                
                 <h3 class="post-title">Kamar A</h3>
-
+                
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                  <!-- Change Here -->
+                    <!-- Change Here -->
                     <?php
                       include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
                       $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar A'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
-                    ?>
+                      ?>
                     <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?> </span>
-                  <!-- Change Stop Here -->
+                    <!-- Change Stop Here -->
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span> 
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span> 
                   </div>
                 </div>
-
+                
                 <hr>
-
-                <a href="./kamarA.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
-
+                
+                <a href="<?= $isDisabled ? '#' : './kamarA.php' ?>" 
+                  class="readmore stretched-link <?= $isDisabled ?>">
+                  <span>Pesan Sekarang</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+                
               </div>
-
+              
             </div>
           </div><!-- End post item -->
-
+          
           <div class="col-xl-4 col-md-6">
+            <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar A2'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
+                  
+                  $isDisabled = $data['jumlah'] == 0 ? 'disabled' : '';
+                  ?>
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-
+              
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/A2.jpg" class="img-fluid" alt="">
                 <!-- Change Span img -->
@@ -334,15 +358,15 @@
                   $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar A2'";
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
-                ?>
-                <span class="post-date">@<?= $data['jumlah']; ?></span>
+                  ?>
+                <span class="post-date"><?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
-
+              
               <div class="post-content d-flex flex-column">
-
+                
                 <h3 class="post-title">Kamar A2</h3>
-
+                
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
                     <!-- Change Here -->
@@ -351,26 +375,38 @@
                       $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar A2'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
-                    ?>
+                      ?>
                     <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?></span>
                     <!-- Change Stop Here -->
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
-
+                
                 <hr>
-
-                <a href="./kamarA2.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
-
-              </div>
-
+                
+                <a href="<?= $isDisabled ? '#' : './kamarA2.php' ?>" 
+                class="readmore stretched-link <?= $isDisabled ?>">
+                <span>Pesan Sekarang</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+              
             </div>
-          </div><!-- End post item -->
+            
+          </div>
+        </div><!-- End post item -->
+        
+        <div class="col-xl-4 col-md-6">
+          <?php
+                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar B'";
+                  $result = $conn->query($sql);
+                  $data = $result->fetch_assoc();
 
-          <div class="col-xl-4 col-md-6">
+                  $isDisabled = $data['jumlah'] == 0 ? 'disabled' : '';
+                ?>
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
 
               <div class="post-img position-relative overflow-hidden">
@@ -382,7 +418,7 @@
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
                 ?>
-                <span class="post-date">@<?= $data['jumlah']; ?></span>
+                <span class="post-date"><?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
@@ -398,26 +434,38 @@
                       $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar B'";
                       $result = $conn->query($sql);
                       $data = $result->fetch_assoc();
-                    ?>
+                      ?>
                     <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?></span>
                     <!-- Change End Here -->
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                  <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
+                    <i class="bi bi-moon-stars-fill"></i> <span class="ps-2">Bulan</span>
                   </div>
                 </div>
-
+                
                 <hr>
-
-                <a href="./kamarB.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
-
+                
+                <a href="<?= $isDisabled ? '#' : './kamarB.php' ?>" 
+                  class="readmore stretched-link <?= $isDisabled ?>">
+                  <span>Pesan Sekarang</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+                
               </div>
 
             </div>
           </div><!-- End post item -->
 
           <div class="col-xl-4 col-md-6">
+            <?php
+              include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+              $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar C'";
+              $result = $conn->query($sql);
+              $data = $result->fetch_assoc();
+
+              $isDisabled = $data['jumlah'] == 0 ? 'disabled' : '';
+            ?>
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
 
               <div class="post-img position-relative overflow-hidden">
@@ -429,7 +477,7 @@
                   $result = $conn->query($sql);
                   $data = $result->fetch_assoc();
                 ?>
-                <span class="post-date">@<?= $data['jumlah']; ?></span>
+                <span class="post-date"><?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
@@ -457,26 +505,37 @@
 
                 <hr>
 
-                <a href="./kamarC.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
-
+                <a href="<?= $isDisabled ? '#' : './kamarC.php' ?>" 
+                  class="readmore stretched-link <?= $isDisabled ?>">
+                  <span>Pesan Sekarang</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
 
             </div>
           </div><!-- End post item -->
 
           <div class="col-xl-4 col-md-6">
+            <?php
+              include 'koneksi.php'; 
+              $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar D'";
+              $result = $conn->query($sql);
+              $data = $result->fetch_assoc();
+
+              $isDisabled = $data['jumlah'] == 0 ? 'disabled' : '';
+            ?>
             <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
 
               <div class="post-img position-relative overflow-hidden">
                 <img src="assets/img/D.jpg" class="img-fluid" alt="">
                 <!-- Change Span img -->
                 <?php
-                  include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                  $sql = "SELECT jumlah FROM kamar WHERE tipe_kamar = 'Kamar D'";
-                  $result = $conn->query($sql);
-                  $data = $result->fetch_assoc();
-                ?>
-                <span class="post-date">@<?= $data['jumlah']; ?></span>
+                      include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar D'";
+                      $result = $conn->query($sql);
+                      $data = $result->fetch_assoc();
+                    ?>
+                <span class="post-date"><?= $data['jumlah']; ?></span>
                 <!-- End Change Span img -->
               </div>
 
@@ -486,15 +545,7 @@
 
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <!-- Change Start Here -->
-                    <?php
-                      include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-                      $sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar D'";
-                      $result = $conn->query($sql);
-                      $data = $result->fetch_assoc();
-                    ?>
                     <i class="bi bi-cash-stack"></i> <span class="ps-2">Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?></span>
-                    <!-- Change End Here -->
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
@@ -504,7 +555,13 @@
 
                 <hr>
 
-                <a href="./kamarD.php" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
+                <!-- Update 10 Here -->
+                <a href="<?= $isDisabled ? '#' : './kamarD.php' ?>" 
+                  class="readmore stretched-link <?= $isDisabled ? 'disabled' : '' ?>">
+                <span>Pesan Sekarang</span>
+                <i class="bi bi-arrow-right"></i>
+                </a>
+                <!-- Update 10 Done Here -->
 
               </div>
 
