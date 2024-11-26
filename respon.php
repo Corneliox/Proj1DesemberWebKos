@@ -20,20 +20,29 @@ $checkinDate = new DateTime($checkin);
 $checkoutDate = new DateTime($checkout);
 $interval = $checkinDate->diff($checkoutDate);
 $totalDays = $interval->days;
+$TotalMonths = round($totalDays/30);
 
 // Tentukan nilai 'payAmount' dan 'tipekamar' berdasarkan input kamar
 switch ($tipekamar) {
-    case 'Ekonomi':
-        $payAmount = $harga_per_malam * $jumlahkamar * $totalDays; // Mengoreksi angka menjadi 100000
-        $tipekamar = "Kamar Ekonomi";
+    case 'Kamar A':
+        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths; // Mengoreksi angka menjadi 100000
+        $tipekamar = "Kamar A";
         break;
-    case 'Standart':
-        $payAmount = $harga_per_malam * $jumlahkamar * $totalDays;
-        $tipekamar = "Kamar Standart";
+    case 'Kamar A2':
+        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $tipekamar = "Kamar A2";
         break;
-    case 'Deluxe':
-        $payAmount = $harga_per_malam * $jumlahkamar * $totalDays;
-        $tipekamar = "Kamar Deluxe";
+    case 'Kamar B':
+        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $tipekamar = "Kamar B";
+        break;
+    case 'Kamar C':
+        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $tipekamar = "Kamar C";
+        break;
+    case 'Kamar D':
+        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $tipekamar = "Kamar D";
         break;
     default:
         $payAmount = 0;
