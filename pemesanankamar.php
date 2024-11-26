@@ -207,12 +207,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = $conn->query($sql);
             while ($data = $result->fetch_assoc()) {
                 echo "<option value='{$data['tipe_kamar']}' data-max='{$data['jumlah']}' data-harga='{$data['harga_per_malam']}'>
-                    {$data['tipe_kamar']} (Rp " . number_format($data['harga_per_malam'], 2, ',', '.') . " per malam)
+                    {$data['tipe_kamar']} (Rp " . number_format($data['harga_per_malam'], 2, ',', '.') . " per Bulan)
                     </option>";
             }
             ?>
             </select>
-			<!-- <input type="hidden" class="form-control" id="harga_per_malam" name="harga_per_malam" value="" required> -->
+			<input type="hidden" class="form-control" id="harga_per_malam" name="harga_per_malam" value="" required>
         </div>
         <div class="form-group">
             <label for="room_count">Jumlah Kamar:</label>
@@ -249,15 +249,15 @@ $(document).ready(function () {
     // Mengatur harga per malam berdasarkan tipe kamar yang dipilih
     $('#room_type').on('change', function () {
         const selectedOption = $(this).find('option:selected');
-        const harga = selectedOption.attr('data-harga');
-        const maxRooms = selectedOption.attr('data-max');
+        const harga = parseInt(selectedOption.attr('data-harga')) || 0; // Ensure harga is a number
+        const maxRooms = parseInt(selectedOption.attr('data-max')) || 0; // Ensure maxRooms is a number
 
         // Set harga per malam
         $('#harga_per_malam').val(harga);
 
         // Atur jumlah maksimum kamar
         const roomCountInput = $('#room_count');
-        if (maxRooms) {
+        if (maxRooms > 0) {
             roomCountInput.prop('disabled', false);
             roomCountInput.attr('max', maxRooms);
             roomCountInput.attr('min', 1);
@@ -278,6 +278,8 @@ $(document).ready(function () {
 
 // Fungsi untuk menghitung jumlah hari
 function calculateDayCount(checkInDate, checkOutDate) {
+    if (!checkInDate || !checkOutDate) return 0;
+
     const checkIn = new Date(checkInDate);
     const checkOut = new Date(checkOutDate);
     const differenceInTime = checkOut - checkIn;
@@ -296,7 +298,7 @@ function updateTotalPrice() {
         const dayCount = calculateDayCount(checkInDate, checkOutDate);
 
         if (dayCount > 0) {
-            const totalPrice = hargaPerMalam * roomCount * dayCount;
+            const totalPrice = hargaPerMalam * roomCount;
             $('#total_price').text(`Rp ${totalPrice.toLocaleString('id-ID')},-`);
         } else {
             $('#total_price').text('Rp 0,-');
