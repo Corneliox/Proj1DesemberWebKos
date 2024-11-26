@@ -111,14 +111,14 @@ require_once 'resources/views/template.php';
     <h2>Kamar C</h2>
     <img src="gambar/C.jpg" alt="Kamar C" class="hero-image">
 
-    <h3>Deskripsi Fasilitas</h3>
+    <!-- <h3>Deskripsi Fasilitas</h3>
     <ul>
         <li>Twin Bed</li>
         <li>Kipas Angin</li>
         <li>Selimut</li>
         <li>Handuk</li>
         <li>WiFi</li>
-    </ul>
+    </ul> -->
 	<?php
 		include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
 		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar C'";

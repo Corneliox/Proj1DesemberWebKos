@@ -111,7 +111,7 @@ require_once 'resources/views/template.php';
     <h2>Kamar B</h2>
     <img src="gambar/B.jpg" alt="Kamar B" class="hero-image">
 
-    <h3>Fasilitas Kamar B:</h3>
+    <!-- <h3>Fasilitas Kamar B:</h3>
     <ul>
         <li>Twin Bed & Double Bed</li>
         <li>AC</li>
@@ -125,7 +125,7 @@ require_once 'resources/views/template.php';
         <li>Lemari Es (share)</li>
         <li>Area Makan (share)</li>
         <li>Area Santai / Smoking Room (share)</li>
-    </ul>
+    </ul> -->
     <?php
 		include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
 		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'B'";

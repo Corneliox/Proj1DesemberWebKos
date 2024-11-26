@@ -109,16 +109,16 @@ require_once 'resources/views/template.php';
 <!-- Kamar A2 -->
 <div class="container">
     <h2>Kamar A2</h2>
-    <img src="gambar/A2.jpg" alt="Kamar A2" class="hero-image">
+    <img src="gambar/PA2.jpg" alt="Kamar A2" class="hero-image">
 
-    <h3>Deskripsi Fasilitas</h3>
+    <!-- <h3>Deskripsi Fasilitas</h3>
     <ul>
         <li>Twin Bed</li>
         <li>Kipas Angin</li>
         <li>Selimut</li>
         <li>Handuk</li>
         <li>WiFi</li>
-    </ul>
+    </ul> -->
 	<?php
 		include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
 		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar A2'";
