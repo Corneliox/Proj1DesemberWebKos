@@ -3,12 +3,12 @@ session_start();
 
 // Cek apakah pengguna sudah login
 if (!isset($_SESSION['user_logged_in'])) {
-    header('Location: login.php');
+    header('Location:login.php');
     exit();
 }
 
 require_once 'resources/views/template.php';
-include 'koneksi.php'; // Koneksi ke database
+include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
 
 // Proses pemesanan kamar
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,32 +17,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $telepon = $_POST['phone'];
     $email = $_POST['email'];
     $tipe_kamar = $_POST['room_type'];
-    $bulan_mulai = $_POST['start_month'];
-    $durasi_bulan = intval($_POST['duration']);
-    $jumlah_kamar = intval($_POST['room_count']);
-    $harga_per_bulan = intval($_POST['harga_per_bulan']);
+    $checkin = $_POST['checkin'];
+    $checkout = $_POST['checkout'];
+    $jumlah_kamar = $_POST['room_count'];
+	$harga_per_malam = $_POST['harga_per_malam'];
 
-    // Validasi ketersediaan kamar
-    $cek_kamar_sql = "SELECT jumlah_kamar FROM kamar WHERE tipe_kamar = :tipe_kamar";
-    $cek_stmt = $conn->prepare($cek_kamar_sql);
-    $cek_stmt->bindParam(':tipe_kamar', $tipe_kamar);
-    $cek_stmt->execute();
-    $result = $cek_stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($result['jumlah_kamar'] <= 0) {
-        echo "Kamar sudah penuh.";
-        exit();
-    } elseif ($jumlah_kamar > $result['jumlah_kamar']) {
-        echo "Jumlah kamar yang tersedia tidak mencukupi.";
+    // Cek apakah tanggal check-out valid
+    if (strtotime($checkout) <= strtotime($checkin)) {
+        echo "Tanggal check-out harus setelah tanggal check-in.";
         exit();
     }
 
-    // Hitung total harga
-    $total_harga = $jumlah_kamar * $harga_per_bulan * $durasi_bulan;
+    // Harga per malam berdasarkan tipe kamar
+    /* switch ($tipe_kamar) {
+        case 'Ekonomi':
+            $harga_per_malam = 110000;
+            break;
+        case 'Standart':
+            $harga_per_malam = 165000;
+            break;
+        case 'Deluxe':
+            $harga_per_malam = 220000;
+            break;
+        default:
+            echo "Tipe kamar tidak valid.";
+            exit();
+    } */
+
+    // Cek Jumlah Kamar
+    $sql_kamar = "SELECT jumlah FROM kamar WHERE tipe_kamar = :tipe_kamar";
+    $stmt_kamar = $conn->prepare($sql_kamar);
+    $stmt_kamar->bindParam(':tipe_kamar', $tipe_kamar);
+    $stmt_kamar->execute();
+    $kamar_data = $stmt_kamar->fetch(PDO::FETCH_ASSOC);
+
+    // Hitung jumlah hari menginap
+    $dayCount = (strtotime($checkout) - strtotime($checkin)) / (60 * 60 * 24);
+    $total_harga = $jumlah_kamar * $harga_per_malam * $dayCount;
 
     // Simpan data pemesanan ke database
-    $sql = "INSERT INTO pemesanan (user_id, nama, telepon, email, tipe_kamar, jumlah_kamar, bulan_mulai, durasi_bulan, total_harga) 
-            VALUES (:user_id, :nama, :telepon, :email, :tipe_kamar, :jumlah_kamar, :bulan_mulai, :durasi_bulan, :total_harga)";
+    $sql = "INSERT INTO pemesanan (user_id, nama, telepon, email, tipe_kamar, jumlah_kamar, checkin, checkout, total_harga) 
+            VALUES (:user_id, :nama, :telepon, :email, :tipe_kamar, :jumlah_kamar, :checkin, :checkout, :total_harga)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':user_id', $user_id);
     $stmt->bindParam(':nama', $nama);
@@ -50,19 +65,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':tipe_kamar', $tipe_kamar);
     $stmt->bindParam(':jumlah_kamar', $jumlah_kamar);
-    $stmt->bindParam(':bulan_mulai', $bulan_mulai);
-    $stmt->bindParam(':durasi_bulan', $durasi_bulan);
+    $stmt->bindParam(':checkin', $checkin);
+    $stmt->bindParam(':checkout', $checkout);
     $stmt->bindParam(':total_harga', $total_harga);
 
     if ($stmt->execute()) {
-        header("Location: invoice.php?user_id=$user_id&total_harga=$total_harga&tipe_kamar=$tipe_kamar&jumlah_kamar=$jumlah_kamar&bulan_mulai=$bulan_mulai&durasi_bulan=$durasi_bulan");
+        // Kurangi kamar dulu ya bosku wkkwkwk
+        $sql_update_kamar = "UPDATE kamar SET jumlah = jumlah - :jumlah_kamar WHERE tipe_kamar = :tipe_kamar";
+        $stmt_update_kamar = $conn->prepare($sql_update_kamar);
+        $stmt_update_kamar->bindParam(':jumlah_kamar', $jumlah_kamar);
+        $stmt_update_kamar->bindParam(':tipe_kamar', $tipe_kamar);
+        $stmt_update_kamar->execute();
+
+        // Redirect ke invoice.php setelah pemesanan berhasil
+        header("Location: invoice.php?user_id=$user_id&total_harga=$total_harga&tipe_kamar=$tipe_kamar&jumlah_kamar=$jumlah_kamar&checkin=$checkin&checkout=$checkout");
         exit();
     } else {
         echo "Terjadi kesalahan saat memproses pemesanan.";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="id">
@@ -153,8 +175,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <img src="gambar/logosiega.jpg" alt="Logo" style="width: 80px; height: 80px; margin-right: 40px;">
 <!-- Form Pemesanan Kamar -->
 <div class="container">
-    <h2>Pemesanan Kost Bulanan</h2>
-    <h3>Isi form berikut untuk memesan kost bulanan</h3>
+    <h2>Pemesanan Kamar</h2>
+    <h3>Isi form berikut untuk melakukan pemesanan kamar</h3>
     <form action="respon.php" method="post">
         <div class="form-group">
             <label for="name">Nama:</label>
@@ -169,42 +191,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan e-mail aktif Anda" required>
         </div>
         <div class="form-group">
-            <label for="start_month">Bulan Mulai:</label>
-            <input type="month" class="form-control" id="start_month" name="start_month" required>
+            <label for="checkin">Tanggal Check-in:</label>
+            <input type="date" class="form-control" id="checkin" name="checkin" required>
         </div>
         <div class="form-group">
-            <label for="duration">Durasi Kost (Bulan):</label>
-            <input type="number" class="form-control" id="duration" name="duration" min="1" required>
+            <label for="checkout">Tanggal Check-out:</label>
+            <input type="date" class="form-control" id="checkout" name="checkout" required>
         </div>
         <div class="form-group">
             <label for="room_type">Tipe Kamar:</label>
             <select class="form-control" id="room_type" name="room_type" required>
-                <option value="" selected hidden>- Pilih Kamar -</option>
-                <?php
-                $sql = "SELECT tipe_kamar, harga_per_bulan, jumlah_kamar FROM kamar ORDER BY id ASC";
-                $result = $conn->query($sql);
-                while ($data = $result->fetch_assoc()) {
-                ?>
-                    <option value="<?= $data['tipe_kamar']; ?>" 
-                            data-harga="<?= $data['harga_per_bulan']; ?>" 
-                            data-kamar="<?= $data['jumlah_kamar']; ?>">
-                        <?= $data['tipe_kamar']; ?> (Rp <?= number_format($data['harga_per_bulan'], 2, ',', '.'); ?>-/bulan, <?= $data['jumlah_kamar']; ?> kamar tersedia)
-                    </option>
-                <?php } ?>
+			<option value="" selected hidden>- Pilih Kamar -</option>
+			<?php
+            $sql = "SELECT * FROM kamar ORDER BY id DESC";
+            $result = $conn->query($sql);
+            while ($data = $result->fetch_assoc()) {
+                echo "<option value='{$data['tipe_kamar']}' data-max='{$data['jumlah']}' data-harga='{$data['harga_per_malam']}'>
+                    {$data['tipe_kamar']} (Rp " . number_format($data['harga_per_malam'], 2, ',', '.') . " per Bulan)
+                    </option>";
+            }
+            ?>
             </select>
-            <input type="hidden" id="harga_per_bulan" name="harga_per_bulan" value="" required>
+			<input type="hidden" class="form-control" id="harga_per_malam" name="harga_per_malam" value="" required>
         </div>
         <div class="form-group">
             <label for="room_count">Jumlah Kamar:</label>
-            <input type="number" class="form-control" id="room_count" name="room_count" min="1" required>
+            <input type="number" class="form-control" id="room_count" name="room_count" placeholder="Masukkan jumlah kamar yang ingin dipesan" min="1" disabled required>
         </div>
 
+
+        <!-- Perhitungan harga -->
         <div class="form-group">
             <p>Total Harga: <span id="total_price" class="total-price">Rp 0,-</span></p>
         </div>
 
         <button type="submit" class="btn btn-custom">Pesan Sekarang</button>
     </form>
+
+    <!-- Tombol Kembali -->
+    <div class="mt-3">
+        <a href="index.php" class="btn btn-secondary btn-block">Kembali</a>
+    </div>
 </div>
 
 <!-- Footer -->
@@ -285,35 +312,6 @@ function updateTotalPrice() {
         $('#total_price').text('Rp 0,-');
     }
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    const roomTypeSelect = document.getElementById('room_type');
-    const roomCountInput = document.getElementById('room_count');
-    const totalPriceElement = document.getElementById('total_price');
-    const hargaPerBulanInput = document.getElementById('harga_per_bulan');
-
-    roomTypeSelect.addEventListener('change', function () {
-        const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
-        const hargaPerBulan = selectedOption.getAttribute('data-harga');
-        const jumlahKamar = selectedOption.getAttribute('data-kamar');
-
-        hargaPerBulanInput.value = hargaPerBulan;
-        roomCountInput.max = jumlahKamar; // Atur jumlah maksimal sesuai kamar tersedia
-
-        updateTotalPrice();
-    });
-
-    roomCountInput.addEventListener('input', updateTotalPrice);
-
-    function updateTotalPrice() {
-        const hargaPerBulan = parseInt(hargaPerBulanInput.value) || 0;
-        const roomCount = parseInt(roomCountInput.value) || 0;
-        const duration = parseInt(document.getElementById('duration').value) || 0;
-
-        const totalPrice = hargaPerBulan * roomCount * duration;
-        totalPriceElement.textContent = `Rp ${totalPrice.toLocaleString('id-ID')},-`;
-    }
-});
 
 </script>
 
