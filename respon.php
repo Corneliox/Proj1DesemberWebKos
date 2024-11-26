@@ -93,125 +93,47 @@ if ($invoice && $invoice->responseCode == '2000000') {
                 current_timestamp()
             )";
 
-    if ($conn->query($sql) === TRUE) {
-        // Mengirim pesan menggunakan Fonnte API
-        $curl = curl_init();
-
-        // Membuat pesan dengan rincian pemesanan
-        $message = "Halo, $name,\n\n"
-                 . "Terima kasih telah mempercayakan kami untuk kebutuhan akomodasi Anda. "
-                 . "Pemesanan kamar Anda telah berhasil kami terima dengan rincian sebagai berikut:\n\n"
-                 . "Tipe Kamar: $tipekamar\n"
-                 . "Jumlah Kamar: $jumlahkamar\n"
-				 . "Total Bayar: Rp $payAmount\n"
-                 . "Check-in: " . $checkinDate->format('Y-m-d') . "\n"
-                 . "Check-out: " . $checkoutDate->format('Y-m-d') . "\n\n"
-                 . "Kami sangat menantikan kedatangan Anda dan akan berusaha memberikan pelayanan terbaik selama Anda menginap.\n\n"
-                 . "Jika ada pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami di 082242227643.\n\n"
-                 . "Salam hangat,\nWISMA PURBADANARTA.";
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.fonnte.com/send',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array(
-                'target' => $nomorhandphone,
-                'message' => $message,
-                'countryCode' => '62', // Kode negara untuk Indonesia
-            ),
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: 5HsruFbKb_nfcx@c7nkh' // Ganti TOKEN dengan token Fonnte kamu
-            ),
-        ));
-
-        $response = curl_exec($curl);
-        if (curl_errno($curl)) {
-            $error_msg = curl_error($curl);
-        }
-        curl_close($curl);
-
-        if (isset($error_msg)) {
-            echo $error_msg;
-        }
-
-        // Simpan respons dari Fonnte ke file status.txt
-        $myfile = fopen("status.txt", "a") or die("Unable to open file!");
-        fwrite($myfile, $response . "\n");
-        fclose($myfile);
-
-        // Menampilkan pesan sukses kepada pengguna
-        $linkCek = "cek.php?invoiceId=" . urlencode($invoiceId) . "&accessToken=" . urlencode($accessToken);
-        echo "
-        <!DOCTYPE html>
-        <html lang='en'>
-        <head>
-            <meta charset='UTF-8'>
-            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-            <title>Invoice Berhasil</title>
-            <style>
-                body {
-                    margin: 0;
-                    padding: 0;
-                    height: 100vh;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-image: url('gambar/background.jpg'); /* Ganti dengan gambar yang sesuai */
-                    background-size: cover;
-                    background-position: center;
-                }
-                .container {
-                    max-width: 600px;
-                    width: 100%;
-                    padding: 20px;
-                    background-color: rgba(255, 255, 255, 0.9);
-                    border-radius: 10px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    text-align: center;
-                }
-                h2 {
-                    color: #2c3e50;
-                }
-                p {
-                    color: #7f8c8d;
-                }
-                .btn {
-                    background-color: #3498db;
-                    color: white;
-                    border: none;
-                    padding: 12px 24px;
-                    border-radius: 5px;
-                    font-size: 16px;
-                    cursor: pointer;
-                    text-decoration: none;
-                }
-                .btn:hover {
-                    background-color: #2980b9;
-                }
-            </style>
-        </head>
-        <body>
-            <div class='container'>
+        if ($conn->query($sql) === TRUE) {
+            // Mengirim pesan konfirmasi
+            $message = "Halo, $name,\n\n"
+                        . "Pemesanan Anda berhasil dengan rincian:\n"
+                        . "Tipe Kamar: $tipekamar\nJumlah Kamar: $jumlahkamar\nDurasi: $duration bulan\n"
+                        . "Total Bayar: Rp " . number_format($total_harga, 0, ',', '.') . "\n\n"
+                        . "Terima kasih telah memesan di Wisma Purbadanarta.";
+    
+            // Integrasi dengan Fonnte
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://api.fonnte.com/send',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => array(
+                    'target' => $nomorhandphone,
+                    'message' => $message,
+                    'countryCode' => '62',
+                ),
+                CURLOPT_HTTPHEADER => array(
+                    'Authorization: 5HsruFbKb_nfcx@c7nkh'
+                ),
+            ));
+    
+            curl_exec($curl);
+            curl_close($curl);
+    
+            echo "
+            <html>
+            <body>
                 <h2>Invoice Berhasil Dibuat</h2>
-                <p>Terima kasih telah memesan di Wisma Purbadanarta. Silakan cek status pembayaran Anda dengan mengklik tombol di bawah ini.</p>
-                <a href='" . $linkCek . "' class='btn'>Lanjutkan</a>
-            </div>
-        </body>
-        </html>";
+                <p>Silakan cek status pembayaran Anda dengan <a href='cek.php?invoiceId=$invoiceId&accessToken=$accessToken'>link ini</a>.</p>
+            </body>
+            </html>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    
+        $conn->close();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $responseCreateInvoice;
     }
-
-    // Tutup koneksi
-    $conn->close();
-} else {
-    echo "Error: " . $responseCreateInvoice; // Tampilkan error dari pembuatan invoice
-}
-
-curl_close($chCreateInvoice);
-?>
+    
+    curl_close($chCreateInvoice);
