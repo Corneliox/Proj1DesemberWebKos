@@ -137,7 +137,7 @@
 		$telephone = '';
 		$facsimile = '';
 		$email = '';
-		$whatsapp = '';
+		$whatsapp = '0813-2507-9903';
 		$website = '';
 		$facebook = '';
 		$instagram = 'https://www.instagram.com/kostputriertiga_ngaliyan?igsh=ZXFzcWZjMHVtZTNk';
