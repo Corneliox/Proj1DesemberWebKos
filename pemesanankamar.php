@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_logged_in'])) {
     exit();
 }
 
+require_once 'resources/views/template.php';
 include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
 
 // Proses pemesanan kamar
@@ -43,6 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
     } */
 
+    // Cek Jumlah Kamar
+    $sql_kamar = "SELECT jumlah FROM kamar WHERE tipe_kamar = :tipe_kamar";
+    $stmt_kamar = $conn->prepare($sql_kamar);
+    $stmt_kamar->bindParam(':tipe_kamar', $tipe_kamar);
+    $stmt_kamar->execute();
+    $kamar_data = $stmt_kamar->fetch(PDO::FETCH_ASSOC);
+
     // Hitung jumlah hari menginap
     $dayCount = (strtotime($checkout) - strtotime($checkin)) / (60 * 60 * 24);
     $total_harga = $jumlah_kamar * $harga_per_malam * $dayCount;
@@ -62,6 +70,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':total_harga', $total_harga);
 
     if ($stmt->execute()) {
+        // Kurangi kamar dulu ya bosku wkkwkwk
+        $sql_update_kamar = "UPDATE kamar SET jumlah = jumlah - :jumlah_kamar WHERE tipe_kamar = :tipe_kamar";
+        $stmt_update_kamar = $conn->prepare($sql_update_kamar);
+        $stmt_update_kamar->bindParam(':jumlah_kamar', $jumlah_kamar);
+        $stmt_update_kamar->bindParam(':tipe_kamar', $tipe_kamar);
+        $stmt_update_kamar->execute();
+
         // Redirect ke invoice.php setelah pemesanan berhasil
         header("Location: invoice.php?user_id=$user_id&total_harga=$total_harga&tipe_kamar=$tipe_kamar&jumlah_kamar=$jumlah_kamar&checkin=$checkin&checkout=$checkout");
         exit();
@@ -76,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemesanan Kamar - Wisma Purba Danarta</title>
+    <title>Pemesanan Kamar - Kost Ertiga Ngaliyan</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -135,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="pemesanankamar.php">
         <img src="gambar/ypd1.png" alt="Logo" style="width: 80px; height: 80px; margin-right: 40px;">
-        Wisma Purba Danarta
+        Kost Ertiga Ngaliyan
 </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -143,9 +158,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="kamarekonomi.php">Kamar Ekonomi</a></li>
-            <li class="nav-item"><a class="nav-link" href="kamarstandart.php">Kamar Standart</a></li>
-            <li class="nav-item"><a class="nav-link" href="kamardeluxe.php">Kamar Deluxe</a></li>
+            <li class="nav-item"><a class="nav-link" href="kamarA.php">Kamar A</a></li>
+            <li class="nav-item"><a class="nav-link" href="kamarA2.php">Kamar A2</a></li>
+            <li class="nav-item"><a class="nav-link" href="kamarB.php">Kamar B</a></li>
+            <li class="nav-item"><a class="nav-link" href="kamarC.php">Kamar C</a></li>
+            <li class="nav-item"><a class="nav-link" href="kamarD.php">Kamar D</a></li>
             <?php if (!isset($_SESSION['user_logged_in'])) { ?>
                 <li class="nav-item"><a class="nav-link" href="daftar.php">Daftar</a></li>
                 <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
@@ -186,21 +203,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <select class="form-control" id="room_type" name="room_type" required>
 			<option value="" selected hidden>- Pilih Kamar -</option>
 			<?php
-				$sql = "SELECT * FROM kamar ORDER BY id DESC";
-				$result = $conn->query($sql);
-				while($data = $result->fetch_assoc()){
-			?>
-                <option value="<?= $data['tipe_kamar']; ?>" data-harga="<?= $data['harga_per_malam']; ?>"><?= $data['tipe_kamar']; ?> (Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?>-/malam)</option>
-			<?php
-				}
-			?>
+            $sql = "SELECT * FROM kamar ORDER BY id DESC";
+            $result = $conn->query($sql);
+            while ($data = $result->fetch_assoc()) {
+                echo "<option value='{$data['tipe_kamar']}' data-max='{$data['jumlah']}' data-harga='{$data['harga_per_malam']}'>
+                    {$data['tipe_kamar']} (Rp " . number_format($data['harga_per_malam'], 2, ',', '.') . " per malam)
+                    </option>";
+            }
+            ?>
             </select>
-			<input type="hidden" class="form-control" id="harga_per_malam" name="harga_per_malam" value="" required>
+			<!-- <input type="hidden" class="form-control" id="harga_per_malam" name="harga_per_malam" value="" required> -->
         </div>
         <div class="form-group">
-    <label for="room_count">Jumlah Kamar (1-4):</label>
-    <input type="number" class="form-control" id="room_count" name="room_count" min="1" max="4" required>
-</div>
+            <label for="room_count">Jumlah Kamar:</label>
+            <input type="number" class="form-control" id="room_count" name="room_count" placeholder="Masukkan jumlah kamar yang ingin dipesan" min="1" disabled required>
+        </div>
 
 
         <!-- Perhitungan harga -->
@@ -219,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- Footer -->
 <footer class="text-center mt-4">
-    <p>&copy; 2024 Wisma Purba Danarta. All rights reserved.</p>
+    <p>&copy; 2024 Kost Ertiga Ngaliyan. All rights reserved.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -275,6 +292,24 @@ function updateTotalPrice() {
         totalPriceElement.textContent = 'Rp 0,-';
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+        const roomTypeSelect = document.getElementById("room_type");
+        const roomCountInput = document.getElementById("room_count");
+
+        roomTypeSelect.addEventListener("change", function () {
+            const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
+            const maxRooms = selectedOption.getAttribute("data-max");
+
+            if (maxRooms) {
+                roomCountInput.removeAttribute("disabled"); // Aktifkan input jumlah kamar
+                roomCountInput.setAttribute("max", maxRooms); // Set nilai maksimum
+                roomCountInput.setAttribute("min", 1); // Pastikan minimum tetap 1
+                roomCountInput.value = ""; // Kosongkan nilai input
+            } else {
+                roomCountInput.setAttribute("disabled", "disabled"); // Nonaktifkan input jika tidak ada tipe yang dipilih
+            }
+        });
+    });
 
 // Tambahkan event listener ke elemen input untuk menghitung harga secara dinamis
 roomTypeInput.addEventListener('change', updateTotalPrice);
