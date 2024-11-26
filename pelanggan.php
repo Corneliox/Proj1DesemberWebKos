@@ -48,7 +48,7 @@
 		  <li><a href="./transaksi.php" class="active">Transaksi</a></li>
 		  <li><a href="./pelanggan.php" class="active">Pengguna</a></li>
       <li><a href="./editadmin.php" class="active">Edit Admin</a></li>
-      <li><a href="./list.php" class="active">list</a></li>
+      <li><a href="./list.php" class="active">List</a></li>
       <li><a class="text-danger" href="javascript:void(0)"><?= $_SESSION['username']; ?></a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
