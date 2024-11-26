@@ -245,80 +245,66 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- JavaScript untuk menghitung harga -->
 <script>
-$(document).ready(function() {
-    $('#room_type').on('change', function() {
-        let harga = $('#room_type option:selected').attr('data-harga');
+$(document).ready(function () {
+    // Mengatur harga per malam berdasarkan tipe kamar yang dipilih
+    $('#room_type').on('change', function () {
+        const selectedOption = $(this).find('option:selected');
+        const harga = selectedOption.attr('data-harga');
+        const maxRooms = selectedOption.attr('data-max');
+
+        // Set harga per malam
         $('#harga_per_malam').val(harga);
+
+        // Atur jumlah maksimum kamar
+        const roomCountInput = $('#room_count');
+        if (maxRooms) {
+            roomCountInput.prop('disabled', false);
+            roomCountInput.attr('max', maxRooms);
+            roomCountInput.attr('min', 1);
+            roomCountInput.val(''); // Kosongkan nilai input
+        } else {
+            roomCountInput.prop('disabled', true);
+        }
+
+        // Perbarui total harga
         updateTotalPrice();
     });
 
-    $('#room_count, #checkin, #checkout').on('input change', function() {
+    // Mengatur event listener untuk perhitungan total harga
+    $('#room_count, #checkin, #checkout').on('input change', function () {
         updateTotalPrice();
     });
 });
 
-const totalPriceElement = document.getElementById('total_price');
-
+// Fungsi untuk menghitung jumlah hari
 function calculateDayCount(checkInDate, checkOutDate) {
     const checkIn = new Date(checkInDate);
     const checkOut = new Date(checkOutDate);
     const differenceInTime = checkOut - checkIn;
 
-    if (differenceInTime > 0) {
-        return Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
-    } else {
-        return 0;
-    }
+    return differenceInTime > 0 ? Math.ceil(differenceInTime / (1000 * 60 * 60 * 24)) : 0;
 }
 
+// Fungsi untuk memperbarui total harga
 function updateTotalPrice() {
-    const roomTypeSelect = document.getElementById('room_type');
-    const roomCount = parseInt(document.getElementById('room_count').value) || 0;
-    const checkInDate = document.getElementById('checkin').value;
-    const checkOutDate = document.getElementById('checkout').value;
-    const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
-    const hargaPerMalam = parseInt(selectedOption.getAttribute('data-harga')) || 0;
+    const hargaPerMalam = parseInt($('#harga_per_malam').val()) || 0;
+    const roomCount = parseInt($('#room_count').val()) || 0;
+    const checkInDate = $('#checkin').val();
+    const checkOutDate = $('#checkout').val();
 
-    if (roomCount > 0 && checkInDate && checkOutDate && hargaPerMalam > 0) {
+    if (hargaPerMalam > 0 && roomCount > 0 && checkInDate && checkOutDate) {
         const dayCount = calculateDayCount(checkInDate, checkOutDate);
 
         if (dayCount > 0) {
             const totalPrice = hargaPerMalam * roomCount * dayCount;
-            totalPriceElement.textContent = `Rp ${totalPrice.toLocaleString('id-ID')},-`;
+            $('#total_price').text(`Rp ${totalPrice.toLocaleString('id-ID')},-`);
         } else {
-            totalPriceElement.textContent = 'Rp 0,-';
+            $('#total_price').text('Rp 0,-');
         }
     } else {
-        totalPriceElement.textContent = 'Rp 0,-';
+        $('#total_price').text('Rp 0,-');
     }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-        const roomTypeSelect = document.getElementById("room_type");
-        const roomCountInput = document.getElementById("room_count");
-        const checkInInput = document.getElementById('checkin');
-        const checkOutInput = document.getElementById('checkout');
-
-        roomTypeSelect.addEventListener("change", function () {
-            const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
-            const maxRooms = selectedOption.getAttribute("data-max");
-
-            if (maxRooms) {
-                roomCountInput.removeAttribute("disabled"); // Aktifkan input jumlah kamar
-                roomCountInput.setAttribute("max", maxRooms); // Set nilai maksimum
-                roomCountInput.setAttribute("min", 1); // Pastikan minimum tetap 1
-                roomCountInput.value = ""; // Kosongkan nilai input
-            } else {
-                roomCountInput.setAttribute("disabled", "disabled"); // Nonaktifkan input jika tidak ada tipe yang dipilih
-            }
-        });
-    });
-
-// Tambahkan event listener ke elemen input untuk menghitung harga secara dinamis
-roomTypeSelect.addEventListener('change', updateTotalPrice);
-roomCountInput.addEventListener('input', updateTotalPrice);
-checkInDateInput.addEventListener('change', updateTotalPrice);
-checkOutDateInput.addEventListener('change', updateTotalPrice);
 
 </script>
 
