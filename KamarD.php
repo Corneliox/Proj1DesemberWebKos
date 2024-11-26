@@ -109,7 +109,7 @@ require_once 'resources/views/template.php';
 <!-- Kamar D -->
 <div class="container">
     <h2>Kamar D</h2>
-    <img src="gambar/kamarD.jpg" alt="Kamar D" class="hero-image">
+    <img src="gambar/D.jpg" alt="Kamar D" class="hero-image">
 
     <h3>Deskripsi Fasilitas</h3>
     <ul>
@@ -121,7 +121,7 @@ require_once 'resources/views/template.php';
     </ul>
 	<?php
 		include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'D'";
+		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar D'";
 		$result = $conn->query($sql);
 		$data = $result->fetch_assoc();
 	?>
