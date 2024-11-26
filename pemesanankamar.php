@@ -287,6 +287,10 @@ function calculateDayCount(checkInDate, checkOutDate) {
     return differenceInTime > 0 ? Math.ceil(differenceInTime / (1000 * 60 * 60 * 24)) : 0;
 }
 
+function calculateMonthCount(calculateDayCount){
+    return Math.round(calculateDayCount / 30);
+}
+
 // Fungsi untuk memperbarui total harga
 function updateTotalPrice() {
     const hargaPerMalam = parseInt($('#harga_per_malam').val()) || 0;
@@ -296,9 +300,10 @@ function updateTotalPrice() {
 
     if (hargaPerMalam > 0 && roomCount > 0 && checkInDate && checkOutDate) {
         const dayCount = calculateDayCount(checkInDate, checkOutDate);
+        const MonthCount = calculateMonthCount(calculateDayCount);
 
-        if (dayCount > 0) {
-            const totalPrice = hargaPerMalam * roomCount;
+        if (MonthCount > 0) {
+            const totalPrice = hargaPerMalam * roomCount * MonthCount;
             $('#total_price').text(`Rp ${totalPrice.toLocaleString('id-ID')},-`);
         } else {
             $('#total_price').text('Rp 0,-');
