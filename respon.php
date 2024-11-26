@@ -7,61 +7,33 @@ $expireTime = date('Y-m-d\TH:i', strtotime('+3 hours'));
 
 // Mengambil data dari POST
 $name = $_POST['name'];
-$nomorhandphone = $_POST['phone']; // Pastikan ini sesuai dengan form
+$nomorhandphone = $_POST['phone'];
 $email = $_POST['email'];
-$tipekamar = $_POST['room_type']; // Pastikan ini sesuai dengan form
-$checkin = $_POST['checkin'];
-$checkout = $_POST['checkout'];
-$jumlahkamar = $_POST['room_count']; // Pastikan ini sesuai dengan form
-$harga_per_malam = $_POST['harga_per_malam'];
+$start_month = $_POST['start_month'];
+$duration = intval($_POST['duration']);
+$tipekamar = $_POST['room_type'];
+$jumlahkamar = intval($_POST['room_count']);
+$harga_per_malam = intval($_POST['harga_per_malam']);
 
-// Menghitung total hari menginap
-$checkinDate = new DateTime($checkin);
-$checkoutDate = new DateTime($checkout);
-$interval = $checkinDate->diff($checkoutDate);
-$totalDays = $interval->days;
-$TotalMonths = round($totalDays/30);
-
-// Tentukan nilai 'payAmount' dan 'tipekamar' berdasarkan input kamar
-switch ($tipekamar) {
-    case 'Kamar A':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths; // Mengoreksi angka menjadi 100000
-        $tipekamar = "Kamar A";
-        break;
-    case 'Kamar A2':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
-        $tipekamar = "Kamar A2";
-        break;
-    case 'Kamar B':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
-        $tipekamar = "Kamar B";
-        break;
-    case 'Kamar C':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
-        $tipekamar = "Kamar C";
-        break;
-    case 'Kamar D':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
-        $tipekamar = "Kamar D";
-        break;
-    default:
-        $payAmount = 0;
-        $tipekamar = "Tidak Diketahui";
-        break;
+// Validasi input
+if (empty($name) || empty($nomorhandphone) || empty($email) || empty($start_month) || $duration <= 0 || $jumlahkamar <= 0 || $harga_per_malam <= 0) {
+    die("Input tidak valid.");
 }
+// Hitung total harga
+$total_harga = $harga_per_malam * $jumlahkamar * $duration;
 
-// Menambahkan detail check-in dan check-out ke dalam catatan
-$remarks = "Check-in: " . $checkinDate->format('Y-m-d') . "\n"
-         . "Check-out: " . $checkoutDate->format('Y-m-d');
+// Tambahkan detail periode pemesanan
+$remarks = "Bulan Mulai: $start_month\nDurasi: $duration bulan";
 
+// Buat body untuk invoice
 $bodyCreateInvoice = array(
     "invoiceName" => $name,
     "referenceId" => "YPD" . date("mdHis"),
     "userName" => $name,
     "userEmail" => $email,
     "userPhone" => $nomorhandphone,
-    "remarks" => $remarks, // Menggunakan isi remarks yang sudah ditentukan
-    "payAmount" => $payAmount,
+    "remarks" => $remarks,
+    "payAmount" => $total_harga,
     "expireTime" => $expireTime,
     "billMasterId" => $billMasterId,
     "paymentMethod" => array(
@@ -72,12 +44,11 @@ $bodyCreateInvoice = array(
         array(
             "itemName" => $tipekamar,
             "itemType" => "ITEM",
-            "itemCount" => "1",
-            "itemTotalPrice" => $payAmount
+            "itemCount" => $jumlahkamar,
+            "itemTotalPrice" => $total_harga
         )
     )
 );
-
 // Signature untuk invoice
 $pathInvoice = '/api/v1/invoice';
 $urlCreateInvoice = $host . $pathInvoice;
