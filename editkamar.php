@@ -45,7 +45,7 @@
 
 		$sql = "UPDATE kamar SET tipe_kamar = ?, harga_per_malam = ?, jumlah = ? WHERE id = ?";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param('sdi', $tipe_kamar, $harga_per_malam, $jumlah, $id);
+		$stmt->bind_param('sdii', $tipe_kamar, $harga_per_malam, $jumlah, $id);
 		$stmt->execute();
 		$update = $stmt->affected_rows;
 
