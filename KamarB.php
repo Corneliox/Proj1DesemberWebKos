@@ -109,7 +109,7 @@ require_once 'resources/views/template.php';
 <!-- Deskripsi Kamar B -->
 <div class="container">
     <h2>Kamar B</h2>
-    <img src="gambar/B.jpg" alt="Kamar B" class="hero-image">
+    <img src="gambar/PB.jpg" alt="Kamar B" class="hero-image">
 
     <!-- <h3>Fasilitas Kamar B:</h3>
     <ul>
