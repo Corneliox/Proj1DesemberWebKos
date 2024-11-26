@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_update_kamar->execute();
 
         // Redirect ke invoice.php setelah pemesanan berhasil
-        header("Location: invoice.php?user_id=$user_id&total_harga=$total_harga&tipe_kamar=$tipe_kamar&jumlah_kamar=$jumlah_kamar&checkin=$checkin&checkout=$checkout");
+        header("Location: invoice.php?user_id=$user_id&total_harga=$total_harga&tipe_kamar=$tipe_kamar&jumlah_kamar=$jumlah_kamar&checkin=$list=$checkout");
         exit();
     } else {
         echo "Terjadi kesalahan saat memproses pemesanan.";

@@ -29,13 +29,13 @@ if (isset($_GET['id'])) {
         $data = $result->fetch_assoc();
     } else {
         $_SESSION['warning'] = '<strong>Peringatan!</strong> Data Transaksi Tidak Ditemukan.';
-        header('location: checkin&checkout.php');
+        header('location: list.php');
         exit();
     }
     $stmt->close();
 } else {
     $_SESSION['warning'] = '<strong>Peringatan!</strong> Pilih Data yang Ingin Diedit.';
-    header('location: checkin&checkout.php');
+    header('location: list.php');
     exit();
 }
 
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 
     if ($stmt->errno) {
         $_SESSION['error'] = '<strong>Error!</strong> Data Transaksi Gagal Diedit.';
-        header('location: checkin&checkout.php');
+        header('location: list.php');
         exit();
     }
 
@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
     } else {
         $_SESSION['error'] = '<strong>Error!</strong> Tidak ada perubahan data.';
     }
-    header('location: checkin&checkout.php');
+    header('location: list.php');
     $stmt->close();
     $conn->close();
 }
@@ -116,7 +116,7 @@ if (isset($_POST['submit'])) {
             <div class="container">
                 <ol>
                     <li><a href="./dashboard.php">Dashboard</a></li>
-                    <li><a href="./checkin&checkout.php">Check-In & Check-Out</a></li>
+                    <li><a href="./list.php">Check-In & Check-Out</a></li>
                     <li class="current">Edit Data Transaksi</li>
                 </ol>
             </div>

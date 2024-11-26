@@ -47,7 +47,7 @@
 		  <li><a href="./transaksi.php" class="active">transaksi</a></li>
 		  <li><a href="./pelanggan.php" class="active">Pengguna</a></li>
           <li><a href="./editadmin.php" class="active">Edit Admin</a></li>
-          <li><a href="./checkin&checkout.php" class="active">checkin&checkout</a></li>
+          <li><a href="./list.php" class="active">list</a></li>
           <li><a class="text-danger" href="javascript:void(0)"><?= $_SESSION['username']; ?></a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -66,7 +66,7 @@
         <div class="container">
           <ol>
             <li><a href="./dashboard.php">Dashboard</a></li>
-            <li class="current">Checkin&checkout</li>
+            <li class="current">list</li>
           </ol>
         </div>
       </nav>
@@ -77,8 +77,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Checkin&checkout</h2>
-        <p>Kelola Data Checkin&checkout</p>
+        <h2>list</h2>
+        <p>Kelola Data list</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up">
@@ -89,7 +89,7 @@
 					<th>Transaksi</th>
 					<th>Tanggal</th>
 					<th>Pelanggan</th>
-					<th>checkin&checkout</th>
+					<th>list</th>
 					<th>Pembayaran</th>
 					<th>Invoice</th>
 					<th>Status</th>
@@ -113,7 +113,7 @@
 					<td><?= $data['invoiceId']; ?></td>
 					<td><?= $data['status']; ?></td>
 					<td>
-						<a class="btn btn-success" href="./editcheckin&checkout.php?id=<?= $data['referenceId']; ?>"><i class='fa fa-edit'></i> Edit</a>
+						<a class="btn btn-success" href="./editlist.php?id=<?= $data['referenceId']; ?>"><i class='fa fa-edit'></i> Edit</a>
 						<a class="btn btn-danger" href="./hapustransaksi.php?id=<?= $data['referenceId']; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini?')"><i class='fa fa-trash'></i> Hapus</a>
 					</td>
 				</tr>
