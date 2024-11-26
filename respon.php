@@ -95,11 +95,16 @@ if ($invoice && $invoice->responseCode == '2000000') {
 
         if ($conn->query($sql) === TRUE) {
             // Mengirim pesan konfirmasi
-            $message = "Halo, $name,\n\n"
-                        . "Pemesanan Anda berhasil dengan rincian:\n"
-                        . "Tipe Kamar: $tipekamar\nJumlah Kamar: $jumlahkamar\nDurasi: $duration bulan\n"
-                        . "Total Bayar: Rp " . number_format($total_harga, 0, ',', '.') . "\n\n"
-                        . "Terima kasih telah memesan di Wisma Purbadanarta.";
+            $message = "Halo $name,\n\n"
+                    . "Terima kasih telah mempercayakan kami untuk kebutuhan akomodasi Anda.\n"
+                    . "Pemesanan kamar Anda telah berhasil kami terima dengan rincian sebagai berikut:\n\n"                    
+                    . "*Tipe Kamar*: $tipekamar\n"
+                    . "*Jumlah Kamar*: $jumlahkamar\n"
+                    . "*Durasi*: $duration bulan\n"
+                    . "Total Bayar: Rp " . number_format($total_harga, 0, ',', '.') . "\n\n"
+                    . "Terima kasih telah memesan di *Kost Ertiga*."
+                    . "Jika ada pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami di *082242227643*.\n\n"
+                    . "Salam hangat,\n*KOST ERTIGA NGALIYAN*.";
     
             // Integrasi dengan Fonnte
             $curl = curl_init();
