@@ -273,13 +273,14 @@ function calculateDayCount(checkInDate, checkOutDate) {
 }
 
 function updateTotalPrice() {
-    const roomType = document.getElementById('room_type').value;
+    const roomTypeSelect = document.getElementById('room_type');
     const roomCount = parseInt(document.getElementById('room_count').value) || 0;
     const checkInDate = document.getElementById('checkin').value;
     const checkOutDate = document.getElementById('checkout').value;
-    const hargaPerMalam = parseInt(document.getElementById('harga_per_malam').value) || 0;
+    const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
+    const hargaPerMalam = parseInt(selectedOption.getAttribute('data-harga')) || 0;
 
-    if (roomType && roomCount > 0 && checkInDate && checkOutDate && hargaPerMalam > 0) {
+    if (roomCount > 0 && checkInDate && checkOutDate && hargaPerMalam > 0) {
         const dayCount = calculateDayCount(checkInDate, checkOutDate);
 
         if (dayCount > 0) {
@@ -292,6 +293,7 @@ function updateTotalPrice() {
         totalPriceElement.textContent = 'Rp 0,-';
     }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
         const roomTypeSelect = document.getElementById("room_type");
         const roomCountInput = document.getElementById("room_count");
