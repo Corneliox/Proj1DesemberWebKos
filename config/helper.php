@@ -134,7 +134,7 @@
 		$header = 'BKK Tracer Study';
 		$footer = 'Kost Ertiga Ngaliyan';
 		$address = '241 Jl. Karonsih Utara Raya Jawa Tengah';
-		$telephone = '';
+		$telephone = '0813-2507-9903';
 		$facsimile = '';
 		$email = '';
 		$whatsapp = '0813-2507-9903';

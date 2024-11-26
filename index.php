@@ -601,9 +601,9 @@
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                   <i class="bi bi-telephone"></i>
-                  <h3>Telepon Kami</h3>
+                  <h3>Telepon / Whatsapp Kami</h3>
                   <p><?= $telephone; ?></p>
-                  <p>-</p>
+                  </br>
                 </div>
               </div><!-- End Info Item -->
 
