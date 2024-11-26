@@ -634,7 +634,7 @@
               <div class="row gy-4">
 
                 <div class="col-12 text-center">
-                  <iframe src="https://maps.app.goo.gl/cYRrfhDDjwwxd2NZ8" width="100%" height="357.5px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d18787.71847050468!2d110.4263131!3d-7.0502476!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d5d186785a1%3A0xbc68d8100603cf37!2sKos%20ertiga!5e1!3m2!1sen!2sid!4v1732593075102!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
               </div>
