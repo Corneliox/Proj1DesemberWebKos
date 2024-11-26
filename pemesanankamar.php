@@ -179,32 +179,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="form-group">
             <label for="room_type">Tipe Kamar:</label>
             <select class="form-control" id="room_type" name="room_type" required>
-                <option value="" selected hidden>- Pilih Kamar -</option>
-                <?php
-                $sql = "SELECT tipe_kamar, harga_per_bulan, jumlah_kamar FROM kamar ORDER BY id ASC";
-                $result = $conn->query($sql);
-                while ($data = $result->fetch_assoc()) {
-                ?>
-                    <option value="<?= $data['tipe_kamar']; ?>" 
-                            data-harga="<?= $data['harga_per_bulan']; ?>" 
-                            data-kamar="<?= $data['jumlah_kamar']; ?>">
-                        <?= $data['tipe_kamar']; ?> (Rp <?= number_format($data['harga_per_bulan'], 2, ',', '.'); ?>-/bulan, <?= $data['jumlah_kamar']; ?> kamar tersedia)
-                    </option>
-                <?php } ?>
+			<option value="" selected hidden>- Pilih Kamar -</option>
+			<?php
+            $sql = "SELECT * FROM kamar ORDER BY id DESC";
+            $result = $conn->query($sql);
+            while ($data = $result->fetch_assoc()) {
+                echo "<option value='{$data['tipe_kamar']}' data-max='{$data['jumlah']}' data-harga='{$data['harga_per_malam']}'>
+                    {$data['tipe_kamar']} (Rp " . number_format($data['harga_per_malam'], 2, ',', '.') . " per Bulan)
+                    </option>";
+            }
+            ?>
             </select>
-            <input type="hidden" id="harga_per_bulan" name="harga_per_bulan" value="" required>
+			<input type="hidden" class="form-control" id="harga_per_malam" name="harga_per_malam" value="" required>
         </div>
         <div class="form-group">
             <label for="room_count">Jumlah Kamar:</label>
-            <input type="number" class="form-control" id="room_count" name="room_count" min="1" required>
+            <input type="number" class="form-control" id="room_count" name="room_count" placeholder="Masukkan jumlah kamar yang ingin dipesan" min="1" disabled required>
         </div>
 
+
+        <!-- Perhitungan harga -->
         <div class="form-group">
             <p>Total Harga: <span id="total_price" class="total-price">Rp 0,-</span></p>
         </div>
 
         <button type="submit" class="btn btn-custom">Pesan Sekarang</button>
     </form>
+
+    <!-- Tombol Kembali -->
+    <div class="mt-3">
+        <a href="index.php" class="btn btn-secondary btn-block">Kembali</a>
+    </div>
 </div>
 
 <!-- Footer -->
@@ -219,103 +224,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!-- JavaScript untuk menghitung harga -->
 <script>
 $(document).ready(function () {
-    // Mengatur harga per malam berdasarkan tipe kamar yang dipilih
+    // Update price per month based on selected room type
     $('#room_type').on('change', function () {
         const selectedOption = $(this).find('option:selected');
-        const harga = parseInt(selectedOption.attr('data-harga')) || 0; // Ensure harga is a number
+        const harga = parseInt(selectedOption.attr('data-harga')) || 0; // Ensure the price is a number
         const maxRooms = parseInt(selectedOption.attr('data-max')) || 0; // Ensure maxRooms is a number
 
-        // Set harga per malam
+        // Set price per month
         $('#harga_per_malam').val(harga);
 
-        // Atur jumlah maksimum kamar
+        // Set max room count
         const roomCountInput = $('#room_count');
         if (maxRooms > 0) {
             roomCountInput.prop('disabled', false);
             roomCountInput.attr('max', maxRooms);
             roomCountInput.attr('min', 1);
-            roomCountInput.val(''); // Kosongkan nilai input
+            roomCountInput.val(''); // Clear room count input
         } else {
             roomCountInput.prop('disabled', true);
         }
 
-        // Perbarui total harga
+        // Update total price
         updateTotalPrice();
     });
 
-    // Mengatur event listener untuk perhitungan total harga
-    $('#room_count, #checkin, #checkout').on('input change', function () {
+    // Event listener to recalculate total price on input change
+    $('#room_count, #start_month, #duration').on('input change', function () {
         updateTotalPrice();
     });
 });
 
-// Fungsi untuk menghitung jumlah hari
-function calculateDayCount(checkInDate, checkOutDate) {
-    if (!checkInDate || !checkOutDate) return 0;
-
-    const checkIn = new Date(checkInDate);
-    const checkOut = new Date(checkOutDate);
-    const differenceInTime = checkOut - checkIn;
-
-    return differenceInTime > 0 ? Math.ceil(differenceInTime / (1000 * 60 * 60 * 24)) : 0;
-}
-
-function calculateMonthCount(calculateDayCount){
-    return Math.round(calculateDayCount / 30);
-}
-
-// Fungsi untuk memperbarui total harga
+// Function to update total price
 function updateTotalPrice() {
-    const hargaPerMalam = parseInt($('#harga_per_malam').val()) || 0;
+    const hargaPerBulan = parseInt($('#harga_per_malam').val()) || 0;
     const roomCount = parseInt($('#room_count').val()) || 0;
-    const checkInDate = $('#checkin').val();
-    const checkOutDate = $('#checkout').val();
+    const duration = parseInt($('#duration').val()) || 0;
 
-    if (hargaPerMalam > 0 && roomCount > 0 && checkInDate && checkOutDate) {
-        const dayCount = calculateDayCount(checkInDate, checkOutDate);
-        const MonthCount = calculateMonthCount(calculateDayCount);
-
-        if (MonthCount > 0) {
-            const totalPrice = hargaPerMalam * roomCount * MonthCount;
-            $('#total_price').text(`Rp ${totalPrice.toLocaleString('id-ID')},-`);
-        } else {
-            $('#total_price').text('Rp 0,-');
-        }
+    if (hargaPerBulan > 0 && roomCount > 0 && duration > 0) {
+        const totalPrice = hargaPerBulan * roomCount * duration;
+        $('#total_price').text(`Rp ${totalPrice.toLocaleString('id-ID')},-`);
     } else {
         $('#total_price').text('Rp 0,-');
     }
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    const roomTypeSelect = document.getElementById('room_type');
-    const roomCountInput = document.getElementById('room_count');
-    const totalPriceElement = document.getElementById('total_price');
-    const hargaPerBulanInput = document.getElementById('harga_per_bulan');
-
-    roomTypeSelect.addEventListener('change', function () {
-        const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
-        const hargaPerBulan = selectedOption.getAttribute('data-harga');
-        const jumlahKamar = selectedOption.getAttribute('data-kamar');
-
-        hargaPerBulanInput.value = hargaPerBulan;
-        roomCountInput.max = jumlahKamar; // Atur jumlah maksimal sesuai kamar tersedia
-
-        updateTotalPrice();
-    });
-
-    roomCountInput.addEventListener('input', updateTotalPrice);
-
-    function updateTotalPrice() {
-        const hargaPerBulan = parseInt(hargaPerBulanInput.value) || 0;
-        const roomCount = parseInt(roomCountInput.value) || 0;
-        const duration = parseInt(document.getElementById('duration').value) || 0;
-
-        const totalPrice = hargaPerBulan * roomCount * duration;
-        totalPriceElement.textContent = `Rp ${totalPrice.toLocaleString('id-ID')},-`;
-    }
-});
-
 </script>
-
 </body>
 </html>
