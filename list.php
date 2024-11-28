@@ -1,19 +1,16 @@
 <?php
-	session_start();
+    session_start();
 
-	//require_once 'config/connection.php';
-	require_once 'config/helper.php';
-	require_once 'resources/views/template.php';
+    require_once 'config/helper.php';
+    require_once 'resources/views/template.php';
 
-	// session('all');
-	// Cek apakah pengguna sudah login
-	if (!isset($_SESSION['admin_logged_in'])) {
-		header('Location:loginadmin.php');
-		exit();
-	}
-	list($application_name, $author, $description, $keywords, $creator, $version, $title, $header, $footer, $address, $telephone, $facsimile, $email, $whatsapp, $website, $facebook, $instagram, $twitter, $youtube) = settings();
+    if (!isset($_SESSION['admin_logged_in'])) {
+        header('Location:loginadmin.php');
+        exit();
+    }
+    list($application_name, $author, $description, $keywords, $creator, $version, $title, $header, $footer, $address, $telephone, $facsimile, $email, $whatsapp, $website, $facebook, $instagram, $twitter, $youtube) = settings();
 
-	include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+    include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +18,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title> - <?= $application_name; ?></title>
+  <title>List - <?= $application_name; ?></title>
   <meta name="description" content="<?= $description; ?>">
   <meta name="keywords" content="<?= $keywords; ?>">
 
@@ -43,9 +40,9 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="./dashboard.php" class="active">Dashboard</a></li>
-		  <li><a href="./kamar.php" class="active">Kamar</a></li>
-		  <li><a href="./transaksi.php" class="active">Transaksi</a></li>
-		  <li><a href="./pelanggan.php" class="active">Pengguna</a></li>
+          <li><a href="./kamar.php" class="active">Kamar</a></li>
+          <li><a href="./transaksi.php" class="active">Transaksi</a></li>
+          <li><a href="./pelanggan.php" class="active">Pengguna</a></li>
           <li><a href="./editadmin.php" class="active">Edit Admin</a></li>
           <li><a href="./list.php" class="active">List</a></li>
           <li><a class="text-danger" href="javascript:void(0)"><?= $_SESSION['username']; ?></a></li>
@@ -60,7 +57,6 @@
 
   <main class="main">
 
-    <!-- Page Title -->
     <div class="page-title">
       <nav class="breadcrumbs">
         <div class="container">
@@ -70,77 +66,78 @@
           </ol>
         </div>
       </nav>
-    </div><!-- End Page Title -->
+    </div>
 
-    <!-- Starter Section Section -->
     <section id="starter-section" class="starter-section section">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>list</h2>
-        <p>Kelola Data Penghuni Kamar</p>
-      </div><!-- End Section Title -->
+        <h2>List</h2>
+        <p>Kelola Data Transaksi</p>
+      </div>
 
       <div class="container" data-aos="fade-up">
         <table id="myTable" class="table table-bordered table-striped" style="width: 100%;">
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>Transaksi</th>
-					<th>Tanggal</th>
-					<th>Pelanggan</th>
-					<th>list</th>
-					<th>Pembayaran</th>
-					<th>Invoice</th>
-					<th>Status</th>
-					<th>Aksi</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-					$no = 1;
-					$sql = "SELECT * FROM transaksi ORDER BY referenceId DESC";
-					$result = $conn->query($sql);
-					while($data = $result->fetch_assoc()){
-				?>
-				<tr>
-					<td><?= $no++; ?></td>
-					<td><?= $data['referenceId']; ?></td>
-					<td><?= $data['timestamp']; ?></td>
-					<td><?= $data['userName']; ?></td>
-					<td><?= $data['remarks']; ?></td> <!-- Menampilkan Check-in -->
-					<td>Rp <?= $data['payAmount']; ?></td>
-					<td><?= $data['invoiceId']; ?></td>
-					<td><?= $data['status']; ?></td>
-					<td>
-						<a class="btn btn-success" href="./editlist.php?id=<?= $data['referenceId']; ?>"><i class='fa fa-edit'></i> Edit</a>
-						<a class="btn btn-danger" href="./hapustransaksi.php?id=<?= $data['referenceId']; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini?')"><i class='fa fa-trash'></i> Hapus</a>
-					</td>
-				</tr>
-				<?php
-					}
-				?>
-			</tbody>
-		</table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Reference ID</th>
+              <th>Nama Pelanggan</th>
+              <th>Email</th>
+              <th>No Telepon</th>
+              <th>Tipe Kamar</th>
+              <th>Jumlah Kamar</th>
+              <th>Durasi (Bulan)</th>
+              <th>Total Harga</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              $no = 1;
+              $sql = "SELECT * FROM transaksi ORDER BY id DESC";
+              $result = $conn->query($sql);
+              while ($data = $result->fetch_assoc()) {
+            ?>
+            <tr>
+              <td><?= $no++; ?></td>
+              <td><?= $data['referenceId']; ?></td>
+              <td><?= $data['userName']; ?></td>
+              <td><?= $data['userEmail']; ?></td>
+              <td><?= $data['userPhone']; ?></td>
+              <td><?= $data['tipe_kamar']; ?></td>
+              <td><?= $data['jumlah_kamar']; ?></td>
+              <td><?= $data['durasi_bulan']; ?></td>
+              <td>Rp <?= number_format($data['total_harga'], 0, ',', '.'); ?></td>
+              <td><?= $data['status_pemesanan']; ?></td>
+              <td>
+                <a class="btn btn-success" href="./editlist.php?id=<?= $data['id']; ?>"><i class='fa fa-edit'></i> Edit</a>
+                <a class="btn btn-danger" href="./hapustransaksi.php?id=<?= $data['id']; ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class='fa fa-trash'></i> Hapus</a>
+              </td>
+            </tr>
+            <?php
+              }
+            ?>
+          </tbody>
+        </table>
       </div>
 
-    </section><!-- /Starter Section Section -->
+    </section>
 
   </main>
 
-  <?= layout('footer'); ?><!-- End Footer -->
+  <?= layout('footer'); ?>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <?= layout('js'); ?>
 
   <script type="text/javascript">
-  $(document).ready(function(){
-	$('#myTable').DataTable({
-		responsive: true
-	});
-  });
+    $(document).ready(function(){
+      $('#myTable').DataTable({
+        responsive: true
+      });
+    });
   </script>
 
 </body>
