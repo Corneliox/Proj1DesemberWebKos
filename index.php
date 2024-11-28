@@ -82,7 +82,7 @@
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
             <h1 data-aos="fade-up">Selamat Datang di Kost Ertiga</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Kost premium yang nyaman dan sejuk di Ungaran-Kota Semarang yag cocok untuk Anak Kuliahan dan Pekerja</p>
+            <p data-aos="fade-up" data-aos-delay="100">Kost premium yang nyaman dan sejuk di Ngaliyan - Kota Semarang yag cocok untuk Anak Kuliahan dan Pekerja</p>
             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
               <a href="#about" class="btn-get-started">Pelajari Lebih Lanjut <i class="bi bi-arrow-right"></i></a>
               <!--<a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center justify-content-center ms-0 ms-md-4 mt-4 mt-md-0"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>-->
