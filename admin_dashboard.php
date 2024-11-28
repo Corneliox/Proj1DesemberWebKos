@@ -39,7 +39,7 @@ $admin = $stmt->get_result()->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin - Wisma Purba Danarta</title>
+    <title>Dashboard Admin - Kost Ertiga Ngaliyan</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -91,7 +91,7 @@ $admin = $stmt->get_result()->fetch_assoc();
 
 <!-- Footer -->
 <footer class="text-center">
-    <p>&copy; 2024 Wisma Purba Danarta. All rights reserved.</p>
+    <p>&copy; 2024 Kost Ertiga Ngaliyan. All rights reserved.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

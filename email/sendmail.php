@@ -38,23 +38,23 @@ if ($result && $result->num_rows > 0) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'purbadanartawisma@gmail.com';
+        $mail->Username   = 'kostertiga242@gmail.com';
         $mail->Password   = "nlcy yqao sikk wolc"; // Pastikan password SMTP benar
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
 
         // Penerima email
-        $mail->setFrom('purbadanartawisma@gmail.com', 'Wisma Purba Danarta');
+        $mail->setFrom('kostertiga242@gmail.com', 'Kost Ertiga Ngaliyan');
         $mail->addAddress($row['userEmail'], $row['userName']);
-        $mail->addReplyTo('purbadanartawisma@gmail.com', 'Wisma Purba Danarta');
+        $mail->addReplyTo('kostertiga242@gmail.com', 'Kost Ertiga Ngaliyan');
         $mail->addCC('rafif.arsya.pradiva@gmail.com');
         $mail->addBCC('rafif.arsya.pradiva@gmail.com');
 
         // Isi email
         $mail->isHTML(true);
-        $mail->Subject = 'Konfirmasi Pemesanan Kamar Wisma Purba Danarta';
+        $mail->Subject = 'Konfirmasi Pemesanan Kamar Kost Ertiga Ngaliyan';
         $mail->Body    = '
-            Terima kasih atas kepercayaan Anda telah melakukan pemesanan kamar di Wisma Purba Danarta.
+            Terima kasih atas kepercayaan Anda telah melakukan pemesanan kamar di Kost Ertiga Ngaliyan.
             <br><br>
             Berikut adalah detail pemesanan Anda:<br>
             <strong>Nama:</strong> ' . htmlspecialchars($row['userName']) . '<br>
@@ -64,11 +64,11 @@ if ($result && $result->num_rows > 0) {
             <strong>Items:</strong> ' . htmlspecialchars($row['items']) . '<br>
             <strong>Nomor Referensi:</strong> ' . htmlspecialchars($referenceId) . '
             <br><br>
-            Kami sangat menantikan kedatangan Anda di Wisma Purba Danarta. Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.
+            Kami sangat menantikan kedatangan Anda di Kost Ertiga Ngaliyan. Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.
             <br><br>
             Hormat kami,<br>
-            Wisma Purba Danarta';
-        $mail->AltBody = 'Terima kasih atas pemesanan Anda di Wisma Purba Danarta. Nomor Referensi: ' . htmlspecialchars($referenceId);
+            Kost Ertiga Ngaliyan';
+        $mail->AltBody = 'Terima kasih atas pemesanan Anda di Kost Ertiga Ngaliyan. Nomor Referensi: ' . htmlspecialchars($referenceId);
 
         $mail->send();
         echo "Email berhasil dikirim.";

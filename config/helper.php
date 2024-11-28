@@ -136,8 +136,8 @@
 		$address = '241 Jl. Karonsih Utara Raya Jawa Tengah';
 		$telephone = '0813-2507-9903';
 		$facsimile = '';
-		$email = '';
-		$whatsapp = '0813-2507-9903';
+		$email = 'kostertiga242@gmail.com';
+		$whatsapp = '0858-7662-0715';
 		$website = '';
 		$facebook = '';
 		$instagram = 'https://www.instagram.com/kostputriertiga_ngaliyan?igsh=ZXFzcWZjMHVtZTNk';

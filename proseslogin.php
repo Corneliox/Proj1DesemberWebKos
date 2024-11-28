@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proses Login - Wisma Purba Danarta</title>
+    <title>Proses Login - Kost Ertiga Ngaliyan</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="container login-result-container">
     <?php if ($login_success): ?>
         <h2>Login Berhasil!</h2>
-        <p>Selamat datang kembali di <strong>Wisma Purba Danarta</strong>.</p>
+        <p>Selamat datang kembali di <strong>Kost Ertiga Ngaliyan</strong>.</p>
         <p>Anda telah berhasil login. Silahkan <a href="index.php">mulai reservasi</a> kamar Anda.</p>
         <a href="index.php" class="btn btn-custom btn-block mt-3">Mulai Reservasi</a>
     <?php else: ?>

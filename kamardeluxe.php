@@ -7,7 +7,7 @@ require_once 'resources/views/template.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamar Deluxe - Wisma Purba Danarta</title>
+    <title>Kamar Deluxe - Kost Ertiga Ngaliyan</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -59,7 +59,7 @@ require_once 'resources/views/template.php';
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="index.php">Wisma Purba Danarta</a>
+    <a class="navbar-brand" href="index.php">Kost Ertiga Ngaliyan</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -133,7 +133,7 @@ require_once 'resources/views/template.php';
 
 <!-- Footer -->
 <footer class="text-center">
-    <p>&copy; 2024 Wisma Purba Danarta. All rights reserved.</p>
+    <p>&copy; 2024 Kost Ertiga Ngaliyan. All rights reserved.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

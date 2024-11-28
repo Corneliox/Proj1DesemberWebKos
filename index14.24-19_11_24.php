@@ -75,7 +75,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Selamat Datang di Wisma Purba Danarta</h1>
+            <h1 data-aos="fade-up">Selamat Datang di Kost Ertiga Ngaliyan</h1>
             <p data-aos="fade-up" data-aos-delay="100">Penginapan premium yang nyaman dan sejuk di tengah jantung Kota Semarang</p>
             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
               <a href="#about" class="btn-get-started">Pelajari Lebih Lanjut <i class="bi bi-arrow-right"></i></a>
@@ -101,7 +101,7 @@
               <h3>Tentang Kami</h3>
               <h2><?= $application_name; ?></h2>
               <p>
-                Wisma Purba Danarta terletak di jantung kota Semarang. Dengan lingkungan yang asri dan lokasi yang sangat strategis, menjadikan Wisma Purba Danarta sebagai destinasi penginapan yang tepat untuk menemani liburan anda di kota Semarang.
+                Kost Ertiga Ngaliyan terletak di jantung kota Semarang. Dengan lingkungan yang asri dan lokasi yang sangat strategis, menjadikan Kost Ertiga Ngaliyan sebagai destinasi penginapan yang tepat untuk menemani liburan anda di kota Semarang.
               </p>
               <div class="text-center text-lg-start">
                 <a href="./pemesanankamar.php" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">

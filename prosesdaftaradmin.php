@@ -47,7 +47,7 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proses Daftar - Wisma Purba Danarta</title>
+    <title>Proses Daftar - Kost Ertiga Ngaliyan</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -77,7 +77,7 @@ mysqli_close($conn);
 <div class="container register-result-container">
     <?php if ($success): ?>
         <h2>Pendaftaran Berhasil!</h2>
-        <p>Selamat, akun Anda telah berhasil didaftarkan di <strong>Wisma Purba Danarta</strong>.</p>
+        <p>Selamat, akun Anda telah berhasil didaftarkan di <strong>Kost Ertiga Ngaliyan</strong>.</p>
         <p>Silahkan <a href="login.php">login</a> untuk melakukan reservasi kamar.</p>
         <a href="loginadmin.php" class="btn btn-custom btn-block mt-3">Login Sekarang</a>
     <?php else: ?>

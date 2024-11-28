@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice Pembayaran dan Tiket - Wisma Purba Danarta</title>
+    <title>Invoice Pembayaran dan Tiket - Kost Ertiga Ngaliyan</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-8">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="max-w-2xl mx-auto bg-gradient-to-r from-green-200 to-green-300 rounded-lg shadow-lg p-6">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tiket Pemesanan Kamar - Wisma Purba Danarta</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tiket Pemesanan Kamar - Kost Ertiga Ngaliyan</h2>
         <div class="flex justify-between mb-2">
             <span class="font-bold text-gray-700">Tipe Kamar:</span>
             <span class="text-gray-700"><?php echo htmlspecialchars($row['tipe_kamar']); ?></span>

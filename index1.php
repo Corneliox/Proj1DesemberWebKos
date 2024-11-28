@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisma Purba Danarta</title>
+    <title>Kost Ertiga Ngaliyan</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
     <!-- Google Fonts -->
@@ -63,7 +63,7 @@ session_start();
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">Wisma Purba Danarta</a>
+    <a class="navbar-brand" href="#">Kost Ertiga Ngaliyan</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -91,16 +91,16 @@ session_start();
 </nav>
 
 <div class="gambar-wisma">
-<img src="gambar/wismapb.jpg" alt="Wisma Purba Danarta" class="hero-image">
+<img src="gambar/wismapb.jpg" alt="Kost Ertiga Ngaliyan" class="hero-image">
 </div>
 
 <div class="tentang container">
-    <h2>Selamat datang di Wisma Purba Danarta</h2>
-    <p>Wisma Purba Danarta terletak di jantung kota Semarang. Dengan lingkungan yang asri dan lokasi yang sangat strategis, menjadikan Wisma Purba Danarta sebagai destinasi penginapan yang tepat untuk menemani liburan anda di kota Semarang. Pesan Kamar Sekarang Juga.</p>
+    <h2>Selamat datang di Kost Ertiga Ngaliyan</h2>
+    <p>Kost Ertiga Ngaliyan terletak di jantung kota Semarang. Dengan lingkungan yang asri dan lokasi yang sangat strategis, menjadikan Kost Ertiga Ngaliyan sebagai destinasi penginapan yang tepat untuk menemani liburan anda di kota Semarang. Pesan Kamar Sekarang Juga.</p>
 </div>
 
 <div class="peta container">
-    <h3>Alamat Wisma Purba Danarta</h3>
+    <h3>Alamat Kost Ertiga Ngaliyan</h3>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.4828088531916!2d110.4055123!3d-7.0037744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b731ad39417%3A0x8bdf4c3ec416195f!2sJl.%20Veteran%20No.7%2C%20Lempongsari%2C%20Kec.%20Gajahmungkur%2C%20Kota%20Semarang%2C%20Jawa%20Tengah%2050231!5e0!3m2!1sid!2sid!4v1695387606674"></iframe>
 </div>
 
@@ -114,7 +114,7 @@ session_start();
 </div>
 
 <footer>
-    <p>&copy; 2024 Wisma Purba Danarta. All rights reserved.</p>
+    <p>&copy; 2024 Kost Ertiga Ngaliyan. All rights reserved.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
