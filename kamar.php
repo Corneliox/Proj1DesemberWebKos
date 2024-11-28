@@ -14,6 +14,7 @@
 	list($application_name, $author, $description, $keywords, $creator, $version, $title, $header, $footer, $address, $telephone, $facsimile, $email, $whatsapp, $website, $facebook, $instagram, $twitter, $youtube) = settings();
 
 	include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +104,7 @@
 				<tr>
 					<td><?= $no++; ?></td>
 					<td><?= $data['tipe_kamar']; ?></td>
-					<td>Rp <?= $data['harga_per_malam']; ?></td>
+					<td>Rp <?= number_format($data['harga_per_malam'], 0 , ',', '.'). ',-'; ?></td>
           <!-- Add Quantity -->
           <td><?= $data['jumlah']; ?></td>
           <!-- End Ad Quantity -->
