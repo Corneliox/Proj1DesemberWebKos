@@ -34,11 +34,11 @@
             <span class="text-gray-700"><?php echo htmlspecialchars($row['jumlah_kamar']); ?></span>
         </div>
         <div class="flex justify-between mb-2">
-            <span class="font-bold text-gray-700">Tanggal Check-in:</span>
+            <span class="font-bold text-gray-700">Tanggal Mulai:</span>
             <span class="text-gray-700"><?php echo htmlspecialchars($row['tanggal_mulai']); ?></span>
         </div>
         <div class="flex justify-between mb-2">
-            <span class="font-bold text-gray-700">Tanggal Check-out:</span>
+            <span class="font-bold text-gray-700">Tanggal Selesai:</span>
             <span class="text-gray-700"><?php echo htmlspecialchars($row['tanggal_selesai']); ?></span>
         </div>
         <div class="flex justify-between mb-2">

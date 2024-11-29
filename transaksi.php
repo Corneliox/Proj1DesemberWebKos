@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//require_once 'config/connection.php';
+// Include file konfigurasi dan helper
 require_once 'config/helper.php';
 require_once 'resources/views/template.php';
 
@@ -10,9 +10,12 @@ if (!isset($_SESSION['admin_logged_in'])) {
     header('Location:loginadmin.php');
     exit();
 }
+
+// Ambil pengaturan aplikasi
 list($application_name, $author, $description, $keywords, $creator, $version, $title, $header, $footer, $address, $telephone, $facsimile, $email, $whatsapp, $website, $facebook, $instagram, $twitter, $youtube) = settings();
 
-include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
+// Include koneksi ke database
+include 'koneksi.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,32 +88,35 @@ include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Transaksi</th>
-                        <th>Tanggal</th>
-                        <th>Pelanggan</th>
-                        <th>Pembayaran</th>
-                        <th>Invoice</th>
+                        <th>Reference ID</th>
+                        <th>Nama Pelanggan</th>
+                        <th>Email</th>
+                        <th>Tipe Kamar</th>
+                        <th>Jumlah Kamar</th>
+                        <th>Durasi (Bulan)</th>
+                        <th>Total Harga</th>
                         <th>Status</th>
-                        <th>Remarks</th> <!-- Tambahkan kolom Remarks -->
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $no = 1;
-                    $sql = "SELECT * FROM transaksi ORDER BY referenceId DESC";
+                    $sql = "SELECT referenceId, userName, userEmail, tipe_kamar, jumlah_kamar, durasi_bulan, total_harga, status_pemesanan 
+                            FROM transaksi ORDER BY referenceId DESC";
                     $result = $conn->query($sql);
-                    while($data = $result->fetch_assoc()){
+                    while ($data = $result->fetch_assoc()) {
                     ?>
                     <tr>
                         <td><?= $no++; ?></td>
                         <td><?= $data['referenceId']; ?></td>
-                        <td><?= $data['timestamp']; ?></td>
                         <td><?= $data['userName']; ?></td>
-                        <td>Rp <?= $data['payAmount']; ?></td>
-                        <td><?= $data['invoiceId']; ?></td>
-                        <td><?= $data['status']; ?></td>
-                        <td><?= $data['remarks']; ?></td> <!-- Tampilkan data Remarks -->
+                        <td><?= $data['userEmail']; ?></td>
+                        <td><?= $data['tipe_kamar']; ?></td>
+                        <td><?= $data['jumlah_kamar']; ?></td>
+                        <td><?= $data['durasi_bulan']; ?> bulan</td>
+                        <td>Rp <?= number_format($data['total_harga'], 2, ',', '.'); ?></td>
+                        <td><?= $data['status_pemesanan']; ?></td>
                         <td>
                             <a class="btn btn-success" href="./edittransaksi.php?id=<?= $data['referenceId']; ?>"><i class='fa fa-edit'></i> Edit</a>
                             <a class="btn btn-danger" href="./hapustransaksi.php?id=<?= $data['referenceId']; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini?')"><i class='fa fa-trash'></i> Hapus</a>

@@ -15,7 +15,7 @@ curl_setopt_array($curl, array(
 'target' =>  $_SESSION['userPhone'],
 'message' => 'Terima Kasih!. Kami mengucapkan terima kasih atas kepercayaan Anda yang telah memesan di penginapan kami. Pembelian Anda telah berhasil dan sampai bertemu dilain waktu.
          Hormat kami,
-        [Wisma Purbadanarta]', 
+        [Kost Ertiga Ngaliyan]', 
 'countryCode' => '62', //optional
 ),
   CURLOPT_HTTPHEADER => array(

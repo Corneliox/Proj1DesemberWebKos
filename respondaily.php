@@ -137,7 +137,7 @@ if ($invoice && $invoice->responseCode == '2000000') {
                  . "Check-out: " . $checkoutDate->format('Y-m-d') . "\n\n"
                  . "Kami sangat menantikan kedatangan Anda dan akan berusaha memberikan pelayanan terbaik selama Anda menginap.\n\n"
                  . "Jika ada pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami di 082242227643.\n\n"
-                 . "Salam hangat,\nWISMA PURBADANARTA.";
+                 . "Salam hangat,\nKost Ertiga Ngaliyan.";
 
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.fonnte.com/send',
@@ -227,7 +227,7 @@ if ($invoice && $invoice->responseCode == '2000000') {
         <body>
             <div class='container'>
                 <h2>Invoice Berhasil Dibuat</h2>
-                <p>Terima kasih telah memesan di Wisma Purbadanarta. Silakan cek status pembayaran Anda dengan mengklik tombol di bawah ini.</p>
+                <p>Terima kasih telah memesan di Kost Ertiga Ngaliyan. Silakan cek status pembayaran Anda dengan mengklik tombol di bawah ini.</p>
                 <a href='" . $linkCek . "' class='btn'>Lanjutkan</a>
             </div>
         </body>

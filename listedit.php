@@ -41,12 +41,37 @@ if (isset($_GET['id'])) {
 
 if (isset($_POST['submit'])) {
     $userName = $_POST['userName'];
-    $remarks = $_POST['remarks']; // Ambil nilai remarks dari form
+    $remarks = $_POST['remarks']; 
+    $tipe_kamar = $_POST['tipe_kamar'];
+    $jumlah_kamar = $_POST['jumlah_kamar'];
+    $tanggal_mulai = $_POST['tanggal_mulai'];
+    $tanggal_selesai = $_POST['tanggal_selesai'];
+    $status_pemesanan = $_POST['status_pemesanan'];
 
-    // Perbarui kolom userName dan remarks dalam database
-    $sql = "UPDATE transaksi SET userName = ?, remarks = ? WHERE referenceId = ?";
+    // Perbarui data transaksi dalam database
+    $sql = "
+        UPDATE transaksi 
+        SET userName = ?, 
+            remarks = ?, 
+            tipe_kamar = ?, 
+            jumlah_kamar = ?, 
+            tanggal_mulai = ?, 
+            tanggal_selesai = ?, 
+            status_pemesanan = ? 
+        WHERE referenceId = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ssi', $userName, $remarks, $id);
+    $stmt->bind_param(
+        'sssisssi', 
+        $userName, 
+        $remarks, 
+        $tipe_kamar, 
+        $jumlah_kamar, 
+        $tanggal_mulai, 
+        $tanggal_selesai, 
+        $status_pemesanan, 
+        $id
+    );
+
     $stmt->execute();
     $update = $stmt->affected_rows;
 
@@ -116,7 +141,7 @@ if (isset($_POST['submit'])) {
             <div class="container">
                 <ol>
                     <li><a href="./dashboard.php">Dashboard</a></li>
-                    <li><a href="./list.php">Check-In & Check-Out</a></li>
+                    <li><a href="./list.php"> list</a></li>
                     <li class="current">Edit Data Transaksi</li>
                 </ol>
             </div>
@@ -130,21 +155,56 @@ if (isset($_POST['submit'])) {
             <form action="" method="post">
 
                 <h4>Edit Data Transaksi</h4>
-                <p>Edit Nama dan Catatan</p>
+                <p>Perbarui Data Transaksi</p>
                 <div class="row">
                     <div class="col form-group">
+                        <label for="userName">Nama Pengguna</label>
                         <input id="userName" name="userName" type="text" class="form-control" placeholder="Nama" value="<?= htmlspecialchars($data['userName']); ?>" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col form-group">
-                        <label for="remarks">Remarks</label>
-                        <textarea id="remarks" name="remarks" class="form-control" placeholder="Masukkan catatan di sini"><?= htmlspecialchars($data['remarks']); ?></textarea>
+                        <label for="remarks">Catatan</label>
+                        <textarea id="remarks" name="remarks" class="form-control" placeholder="Masukkan catatan"><?= htmlspecialchars($data['remarks'] ?? ''); ?></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="tipe_kamar">Tipe Kamar</label>
+                        <input id="tipe_kamar" name="tipe_kamar" type="text" class="form-control" value="<?= htmlspecialchars($data['tipe_kamar']); ?>" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="jumlah_kamar">Jumlah Kamar</label>
+                        <input id="jumlah_kamar" name="jumlah_kamar" type="number" class="form-control" value="<?= htmlspecialchars($data['jumlah_kamar']); ?>" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="tanggal_mulai">Tanggal Mulai</label>
+                        <input id="tanggal_mulai" name="tanggal_mulai" type="date" class="form-control" value="<?= htmlspecialchars($data['tanggal_mulai']); ?>" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="tanggal_selesai">Tanggal Selesai</label>
+                        <input id="tanggal_selesai" name="tanggal_selesai" type="date" class="form-control" value="<?= htmlspecialchars($data['tanggal_selesai']); ?>" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="status_pemesanan">Status Pemesanan</label>
+                        <select id="status_pemesanan" name="status_pemesanan" class="form-control">
+                            <option value="Pending" <?= $data['status_pemesanan'] === 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                            <option value="Confirmed" <?= $data['status_pemesanan'] === 'Confirmed' ? 'selected' : ''; ?>>Confirmed</option>
+                            <option value="Canceled" <?= $data['status_pemesanan'] === 'Canceled' ? 'selected' : ''; ?>>Canceled</option>
+                        </select>
                     </div>
                 </div>
                 <div class="text-center">
                     <button type="submit" name="submit" value="submit" class="btn btn-primary">Simpan</button>
-                    <button type="button" onclick="window.history.back()" class="btn btn-danger" style="border-radius: 4px; padding: 10px 20px; border: 0;">Kembali</button>
+                    <button type="button" onclick="window.history.back()" class="btn btn-danger">Kembali</button>
                 </div>
 
             </form>
