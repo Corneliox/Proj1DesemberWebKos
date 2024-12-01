@@ -125,7 +125,7 @@ require_once 'resources/views/template.php';
 		$result = $conn->query($sql);
 		$data = $result->fetch_assoc();
 	?>
-    <p><strong>Harga: Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?>-/kamar/malam</strong></p>
+    <p><strong>Harga: Rp <?= number_format($data['harga_per_malam'],2,',','.'); ?>-/kamar/ Bulan</strong></p>
 
     <a href="pemesanankamar.php" class="btn btn-custom">Klik Pesan</a>
 </div>

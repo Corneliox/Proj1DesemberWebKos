@@ -113,7 +113,7 @@ session_start();
         <li>WiFi</li>
         <li>Kopi & Teh</li>
     </ul>
-    <p><strong>Harga: Rp 165.000,-/kamar/malam</strong></p>
+    <p><strong>Harga: Rp 165.000,-/kamar/ Bulan</strong></p>
 
     <a href="pemesanankamar.php" class="btn btn-custom">Klik Pesan</a>
 </div>
