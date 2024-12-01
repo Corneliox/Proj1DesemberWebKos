@@ -634,7 +634,7 @@
               <div class="row gy-4">
 
                 <div class="col-12 text-center">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d18787.71847050468!2d110.4263131!3d-7.0502476!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d5d186785a1%3A0xbc68d8100603cf37!2sKos%20ertiga!5e1!3m2!1sen!2sid!4v1732593075102!5m2!1sen!2sid" width="100%" height="357.5px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20077.449409622703!2d110.33355286694574!3d-7.000692814789394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708abe3bed030b%3A0x815ca20eac45a7f5!2sJl.%20Karonsih%20Utara%20Raya%20No.242%2C%20Ngaliyan%2C%20Kec.%20Ngaliyan%2C%20Kota%20Semarang%2C%20Jawa%20Tengah%2050181!5e1!3m2!1sen!2sid!4v1733026366648!5m2!1sen!2sid" width="100%" height="357.5px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
               </div>
@@ -677,10 +677,10 @@
     <div class="informasi container">
       <h3>Ikuti Kami di Instagram</h3>
       <p>Instagram: <a href="https://www.instagram.com/kostputriertiga_ngaliyan?igsh=ZXFzcWZjMHVtZTNk" target="_blank">@kostputriertiga_ngaliyan</a></p>
-      <!-- 
+      
       <h3>Ikuti Kami di TikTok</h3>
-      <p>TikTok: <a href="https://www.tiktok.com/@wisma.purba.danar" target="_blank">@wisma.purba.danar</a></p> 
-      -->
+      <p>TikTok: <a href="https://www.tiktok.com/@kostputriertiga_ngaliyan" target="_blank">@kostputriertiga_ngaliyan</a></p> 
+     
 
     </div>
 </body>
