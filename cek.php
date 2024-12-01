@@ -132,8 +132,8 @@ $status = $cekInvoice->responseData->invoiceStatus;
 if ($status == "NEW") {
     echo "<div class='new-invoice'>";
     echo "<h1>Invoice Baru</h1>";
-    echo "<p>Invoice: " . $cekInvoice->responseData->invoicename . "</p>";
-    echo "<p>Senilai: Rp" . number_format($cekInvoice->responseData->total_harga, 0, ',', '.') . "</p>";
+    echo "<p>Invoice: " . $cekInvoice->responseData->invoiceName . "</p>";
+    echo "<p>Senilai: Rp" . number_format($cekInvoice->responseData->payAmount, 0, ',', '.') . "</p>";
     echo "<p>Status: " . $status . "</p>";
     echo "</div>";
     echo "<div class='button-container'><a href='" . $cekInvoice->responseData->invoiceURL . "' target='_blank' class='button'>Lanjutkan pembayaran</a></div>";
