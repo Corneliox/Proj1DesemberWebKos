@@ -14,14 +14,14 @@ $start_month = $_POST['start_month'];
 $duration = intval($_POST['duration']);
 $tipekamar = $_POST['room_type'];
 $jumlahkamar = intval($_POST['room_count']);
-$harga_per_malam = intval($_POST['harga_per_malam']);
+$harga_per_bulan = intval($_POST['harga_per_bulan']);
 
 // Validasi input
-if (empty($name) || empty($nomorhandphone) || empty($email) || empty($start_month) || $duration <= 0 || $jumlahkamar <= 0 || $harga_per_malam <= 0) {
+if (empty($name) || empty($nomorhandphone) || empty($email) || empty($start_month) || $duration <= 0 || $jumlahkamar <= 0 || $harga_per_bulan <= 0) {
     die("Input tidak valid.");
 }
 // Hitung total harga
-$total_harga = $harga_per_malam * $jumlahkamar * $duration;
+$total_harga = $harga_per_bulan * $jumlahkamar * $duration;
 
 // Tambahkan detail periode pemesanan
 $remarks = "Bulan Mulai: $start_month\nDurasi: $duration bulan";
