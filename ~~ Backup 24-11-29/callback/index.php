@@ -42,7 +42,7 @@ if ($result) {
 
     $_SESSION['remarks']=$row['remarks'];
 
-    $_SESSION['payAmount']=$row['payAmount'];
+    $_SESSION['total_harga']=$row['total_harga'];
 
     $_SESSION['detail']=$row['items'];
 

@@ -109,7 +109,7 @@
 					<td><?= $data['timestamp']; ?></td>
 					<td><?= $data['userName']; ?></td>
 					<td><?= $data['remarks']; ?></td> <!-- Menampilkan Check-in -->
-					<td>Rp <?= $data['payAmount']; ?></td>
+					<td>Rp <?= $data['total_harga']; ?></td>
 					<td><?= $data['invoiceId']; ?></td>
 					<td><?= $data['status']; ?></td>
 					<td>

@@ -60,7 +60,7 @@ if ($result && $result->num_rows > 0) {
             <strong>Nama:</strong> ' . htmlspecialchars($row['userName']) . '<br>
             <strong>Email:</strong> ' . htmlspecialchars($row['userEmail']) . '<br>
             <strong>Nomor Telepon:</strong> ' . htmlspecialchars($row['userPhone']) . '<br>
-            <strong>Jumlah Pembayaran:</strong> Rp ' . number_format($row['payAmount'], 0, ',', '.') . ',-<br>
+            <strong>Jumlah Pembayaran:</strong> Rp ' . number_format($row['total_harga'], 0, ',', '.') . ',-<br>
             <strong>Items:</strong> ' . htmlspecialchars($row['items']) . '<br>
             <strong>Nomor Referensi:</strong> ' . htmlspecialchars($referenceId) . '
             <br><br>

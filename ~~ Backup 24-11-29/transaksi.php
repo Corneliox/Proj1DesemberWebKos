@@ -107,7 +107,7 @@ include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
                         <td><?= $data['referenceId']; ?></td>
                         <td><?= $data['timestamp']; ?></td>
                         <td><?= $data['userName']; ?></td>
-                        <td>Rp <?= $data['payAmount']; ?></td>
+                        <td>Rp <?= $data['total_harga']; ?></td>
                         <td><?= $data['invoiceId']; ?></td>
                         <td><?= $data['status']; ?></td>
                         <td><?= $data['remarks']; ?></td> <!-- Tampilkan data Remarks -->

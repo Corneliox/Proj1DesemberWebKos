@@ -34,7 +34,7 @@ $bodyCreateInvoice = array(
     "userEmail" => $email,
     "userPhone" => $nomorhandphone,
     "remarks" => $remarks,
-    "payAmount" => $total_harga,
+    "total_harga" => $total_harga,
     "expireTime" => $expireTime,
     "billMasterId" => $billMasterId,
     "paymentMethod" => array(
@@ -80,14 +80,14 @@ if ($invoice && $invoice->responseCode == '2000000') {
     $accessToken = $invoice->responseData->accessToken;
 
     include "koneksi.php";
-    $sql = "INSERT INTO transaksi (referenceId, userName, userEmail, userPhone, remarks, payAmount, 
+    $sql = "INSERT INTO transaksi (referenceId, userName, userEmail, userPhone, remarks, total_harga, 
             items, invoiceId, status, timestamp) VALUES (
                 '".$bodyCreateInvoice['referenceId']."', 
                 '".$bodyCreateInvoice['userName']."', 
                 '".$bodyCreateInvoice['userEmail']."', 
                 '".$bodyCreateInvoice['userPhone']."', 
                 '".str_replace(array('\'', '"', ',', ';', '<', '>', '/'), ' ', $bodyCreateInvoice['remarks'])."', 
-                '".$bodyCreateInvoice['payAmount']."', 
+                '".$bodyCreateInvoice['total_harga']."', 
                 '".json_encode($bodyCreateInvoice['items'])."', 
                 '".$invoiceId."', 
                 'NEW', 

@@ -69,7 +69,7 @@ CREATE TABLE `transaksi` (
   `userEmail` varchar(40) NOT NULL,
   `userPhone` varchar(20) NOT NULL,
   `remarks` text NOT NULL,
-  `payAmount` bigint(20) unsigned NOT NULL,
+  `total_harga` bigint(20) unsigned NOT NULL,
   `items` text NOT NULL,
   `invoiceId` varchar(25) NOT NULL,
   `status` varchar(10) NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE `transaksi` (
 
 /*Data for the table `transaksi` */
 
-insert  into `transaksi`(`referenceId`,`userName`,`userEmail`,`userPhone`,`remarks`,`payAmount`,`items`,`invoiceId`,`status`,`timestamp`) values 
+insert  into `transaksi`(`referenceId`,`userName`,`userEmail`,`userPhone`,`remarks`,`total_harga`,`items`,`invoiceId`,`status`,`timestamp`) values 
 ('YPD1015222937','arya','dimaschaqti2u@gmail.com','082242227643','Check-in: 2024-10-15\nCheck-out: 2024-10-16',10000,'[{\"itemName\":\"Kamar Ekonomi\",\"itemType\":\"ITEM\",\"itemCount\":\"1\",\"itemTotalPrice\":10000}]','7kHXPy2A9B3GURlhvWMA','NEW','2024-10-15 22:29:38'),
 ('YPD1028143649','arya','dimaschaqti2u@gmail.com','082242227643','Check-in: 2024-10-21\nCheck-out: 2024-10-22',110000,'[{\"itemName\":\"Kamar Ekonomi\",\"itemType\":\"ITEM\",\"itemCount\":\"1\",\"itemTotalPrice\":110000}]','7wh4m4N2IHm2jYTAUniJ','NEW','2024-10-28 14:36:50'),
 ('YPD1011134240','RAFIF ','dimaschaqti2u@gmail.com','082242227643','2024-10-15 /2024-10-16',10000,'[{\"itemName\":\"Kamar Ekonomi\",\"itemType\":\"ITEM\",\"itemCount\":\"1\",\"itemTotalPrice\":10000}]','8KrRP1OMGj09m8ZmM2qC','NEW','2024-10-11 13:42:41'),

@@ -22,30 +22,30 @@ $interval = $checkinDate->diff($checkoutDate);
 $totalDays = $interval->days;
 $TotalMonths = round($totalDays/30);
 
-// Tentukan nilai 'payAmount' dan 'tipekamar' berdasarkan input kamar
+// Tentukan nilai 'total_harga' dan 'tipekamar' berdasarkan input kamar
 switch ($tipekamar) {
     case 'Kamar A':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths; // Mengoreksi angka menjadi 100000
+        $total_harga = $harga_per_malam * $jumlahkamar * $TotalMonths; // Mengoreksi angka menjadi 100000
         $tipekamar = "Kamar A";
         break;
     case 'Kamar A2':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $total_harga = $harga_per_malam * $jumlahkamar * $TotalMonths;
         $tipekamar = "Kamar A2";
         break;
     case 'Kamar B':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $total_harga = $harga_per_malam * $jumlahkamar * $TotalMonths;
         $tipekamar = "Kamar B";
         break;
     case 'Kamar C':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $total_harga = $harga_per_malam * $jumlahkamar * $TotalMonths;
         $tipekamar = "Kamar C";
         break;
     case 'Kamar D':
-        $payAmount = $harga_per_malam * $jumlahkamar * $TotalMonths;
+        $total_harga = $harga_per_malam * $jumlahkamar * $TotalMonths;
         $tipekamar = "Kamar D";
         break;
     default:
-        $payAmount = 0;
+        $total_harga = 0;
         $tipekamar = "Tidak Diketahui";
         break;
 }
@@ -61,7 +61,7 @@ $bodyCreateInvoice = array(
     "userEmail" => $email,
     "userPhone" => $nomorhandphone,
     "remarks" => $remarks, // Menggunakan isi remarks yang sudah ditentukan
-    "payAmount" => $payAmount,
+    "total_harga" => $total_harga,
     "expireTime" => $expireTime,
     "billMasterId" => $billMasterId,
     "paymentMethod" => array(
@@ -73,7 +73,7 @@ $bodyCreateInvoice = array(
             "itemName" => $tipekamar,
             "itemType" => "ITEM",
             "itemCount" => "1",
-            "itemTotalPrice" => $payAmount
+            "itemTotalPrice" => $total_harga
         )
     )
 );
@@ -108,14 +108,14 @@ if ($invoice && $invoice->responseCode == '2000000') {
     $accessToken = $invoice->responseData->accessToken;
 
     include "koneksi.php";
-    $sql = "INSERT INTO transaksi (referenceId, userName, userEmail, userPhone, remarks, payAmount, 
+    $sql = "INSERT INTO transaksi (referenceId, userName, userEmail, userPhone, remarks, total_harga, 
             items, invoiceId, status, timestamp) VALUES (
                 '".$bodyCreateInvoice['referenceId']."', 
                 '".$bodyCreateInvoice['userName']."', 
                 '".$bodyCreateInvoice['userEmail']."', 
                 '".$bodyCreateInvoice['userPhone']."', 
                 '".str_replace(array('\'', '"', ',', ';', '<', '>', '/'), ' ', $bodyCreateInvoice['remarks'])."', 
-                '".$bodyCreateInvoice['payAmount']."', 
+                '".$bodyCreateInvoice['total_harga']."', 
                 '".json_encode($bodyCreateInvoice['items'])."', 
                 '".$invoiceId."', 
                 'NEW', 
@@ -132,7 +132,7 @@ if ($invoice && $invoice->responseCode == '2000000') {
                  . "Pemesanan kamar Anda telah berhasil kami terima dengan rincian sebagai berikut:\n\n"
                  . "Tipe Kamar: $tipekamar\n"
                  . "Jumlah Kamar: $jumlahkamar\n"
-				 . "Total Bayar: Rp $payAmount\n"
+				 . "Total Bayar: Rp $total_harga\n"
                  . "Check-in: " . $checkinDate->format('Y-m-d') . "\n"
                  . "Check-out: " . $checkoutDate->format('Y-m-d') . "\n\n"
                  . "Kami sangat menantikan kedatangan Anda dan akan berusaha memberikan pelayanan terbaik selama Anda menginap.\n\n"
