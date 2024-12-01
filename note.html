@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./assets/img/favicon1.ico" rel="icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Remarkup Website</title>
+    <style>
+        /* Palet warna biru: Blue Ocean */
+        :root {
+            --blue-dark: #05445E;
+            --blue-medium: #189AB4;
+            --blue-light: #75E6DA;
+            --blue-extra-light: #D4F1F4;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: var(--blue-extra-light);
+            color: var(--blue-dark);
+            overflow-x: hidden;
+        }
+
+        .invoice {
+            max-width: 800px;
+            margin: auto;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1, h2 {
+            color: var(--blue-dark);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        p, ul {
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid var(--blue-medium);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--blue-medium);
+            color: var(--white);
+        }
+
+        .total {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .total-amount {
+            color: var(--blue-medium);
+            font-size: 1.2em;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 180px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: var(--blue-medium);
+            color: var(--white);
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--blue-dark);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media print {
+            .btn-group {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice">
+    <h1>Nota Remarkup Website</h1>
+    <p><strong>No. Invoice:</strong> INV-001</p>
+    <p><strong>Tanggal:</strong> <span id="tanggal"></span></p>
+
+    <h2>Detail Pekerjaan</h2>
+    <ul>
+        <li>Merubah Gambar dan Logo Website</li>
+        <li>Rubah Semua Nama dan Informasi Terhubung Instansi</li>
+        <li>Rubah Format SQL Kamar (1 Item ke 5 Item dengan Quantity)</li>
+        <li>Rubah Cara Transaksi (Harus Bulanan)</li>
+        <li>Merombak Tampilan Halaman Admin</li>
+        <li>Memperbaiki Proses Login dan Registrasi</li>
+        <li>Merubah Style Halaman Index dan Respon</li>
+        <li>Memperbaiki Bug Pembelian Berulang</li>
+    </ul>
+
+    <h2>Rincian Harga</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Deskripsi</th>
+                <th>Jumlah Jam</th>
+                <th>Harga/Jam</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pengembangan & Perbaikan Website</td>
+                <td id="jumlahJam">72</td>
+                <td id="hargaPerJam">35,000</td>
+                <td id="totalTanpaDiskon">Rp 2,520,000</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="total">Diskon Mahasiswa (Rp520,000)</td>
+                <td id="diskon">Rp 520,000</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="total">Total yang Dibayarkan</td>
+                <td id="totalDenganDiskon" class="total-amount">Rp 2,000,000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Unduhan</h2>
+    <div class="btn-group">
+        <a href="listf.xlsx" download class="btn">Download Detail xlsx</a>
+        <button onclick="printNota()" class="btn">Download Nota</button>
+    </div>
+</div>
+
+<script>
+    // Set tanggal hari ini
+    const today = new Date();
+    document.getElementById("tanggal").innerText = today.toLocaleDateString();
+
+    // Fungsi untuk mencetak halaman sebagai nota
+    function printNota() {
+        window.print();
+    }
+</script>
+
+</body>
+</html>
