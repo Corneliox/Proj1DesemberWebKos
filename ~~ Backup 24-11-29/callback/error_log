@@ -1,0 +1,5 @@
+[14-Oct-2024 16:03:55 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/mesy7597/public_html/purbadanarta/email/sendmail.php:36
+Stack trace:
+#0 /home/mesy7597/public_html/purbadanarta/callback/index.php(64): include()
+#1 {main}
+  thrown in /home/mesy7597/public_html/purbadanarta/email/sendmail.php on line 36

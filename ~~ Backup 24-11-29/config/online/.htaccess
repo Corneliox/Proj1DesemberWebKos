@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+	<IfModule mod_negotiation.c>
+		Options -MultiViews -Indexes
+	</IfModule>
+
+	RewriteEngine On
+	RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	RewriteCond %{HTTPS} off
+	RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME}.php -f
+	RewriteRule ^([^/.]+)/?$ $1.php [NC,L,QSA]
+	#RewriteRule ^([^/.]+)/([A-Za-z0-9-\+]+)/?$ $1.php?id=$2 [NC,L,QSA]
+
+	#RewriteRule ^([^/.]+)/([0-9]+)/?$ $1.php?id=$2 [NC,L,QSA]
+
+	ErrorDocument 401 /resources/views/errors/401.php
+	#ErrorDocument 402 /resources/views/errors/402.php
+	ErrorDocument 403 /resources/views/errors/403.php
+	ErrorDocument 404 /resources/views/errors/404.php
+	ErrorDocument 429 /resources/views/errors/429.php
+	ErrorDocument 500 /resources/views/errors/500.php
+	ErrorDocument 503 /resources/views/errors/503.php
+</IfModule>

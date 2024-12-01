@@ -1,0 +1,9 @@
+.btn.disabled, .btn:disabled{
+	cursor: not-allowed;
+}
+.swal-button--danger{
+	background-color: #e64942 !important;
+}
+.section .section-title::before{
+	background-color: #394eea;
+}
