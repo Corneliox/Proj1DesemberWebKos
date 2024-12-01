@@ -128,7 +128,7 @@ require_once 'resources/views/template.php';
     </ul> -->
     <?php
 		include 'koneksi.php'; // Pastikan Anda memiliki koneksi database
-		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'B'";
+		$sql = "SELECT * FROM kamar WHERE tipe_kamar = 'Kamar B'";
 		$result = $conn->query($sql);
 		$data = $result->fetch_assoc();
 	?>
