@@ -124,7 +124,7 @@ list($application_name, $author, $description, $keywords, $creator, $version, $t
                     <p>Daftar Akun Baru</p>
                     <div class="row">
                         <div class="col form-group">
-                            <input id="name" name="name" type="email" class="form-control" placeholder="Name" required>
+                            <input id="name" name="name" type="name" class="form-control" placeholder="Name" required>
                         </div>
                     </div>
                     <div class="row">
