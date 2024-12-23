@@ -1,0 +1,84 @@
+Kamar A-D
+Kamar
+Dashboard
+Edit Kamar
+Index
+pemesanankamar
+respon
+list
+listedit
+listhapus
+dashboard
+editadmin
+pelanggan
+transaksi
+editpemesanan
+cek.php
+daftaradmin
+prosesdaftar
+prosesdaftaradmin
+proseslogin
+user
+admin_dashboard
+transaksi
+
+/resources/css/custom.css
+/config/helper.php
+
+/email/email.php
+/email/sendmail.php
+
+/callback/index.php
+
+/fonnte/index.php
+/fonnte/index2.php
+
+Hai bantu saya menaksir harga jasa untuk pekerjaan ini dong
+
+Saya merombak total website client dengan perubahan 
+- Merubah semua nama dan instansi, map, serta kontak
+- Merubah semua arah pembayaran dari Sebuah instansi ke instansi lainnya
+- mengubah semua format sql pembayaran ke sql baru dan mengubah semua parameter yang berbeda (dari tipe chekin harian, ke pembayaran bulanan)
+- memperbaiki tampilan login dan register
+- memperbaiki tata letak gambar dan beberapa layout lain
+- memberi fitur hidden dan tidak pada item yang habis
+- menambah item penjualan 
+- Perbaiki ebberapa bug 
+- Mengubah skema transaksi dan lainnya
+
+File yang diubah (.php) :
+Kamar A-D
+Kamar
+Dashboard
+Edit Kamar
+Index
+pemesanankamar
+respon
+list
+listedit
+listhapus
+dashboard
+editadmin
+pelanggan
+transaksi
+editpemesanan
+cek.php
+daftaradmin
+prosesdaftar
+prosesdaftaradmin
+proseslogin
+user
+admin_dashboard
+transaksi
+
+/resources/css/custom.css
+/config/helper.php
+
+/email/email.php
+/email/sendmail.php
+
+/callback/index.php
+
+/fonnte/index.php
+/fonnte/index2.php
+
